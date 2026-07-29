@@ -335,14 +335,50 @@ function initMarketTickerDecluttered() {
 /* --------------------------------------------------------------------------
    3. DYNAMIC LIVE ANALYST SIGNAL ENGINE
    -------------------------------------------------------------------------- */
-const activeCallFeed = {
-  script: "BUY BANKNIFTY 48000 CALL @ ₹320",
-  segment: "Index Option Intraday | Horizon: 1 Session",
-  t1: "₹380",
-  t2: "₹440",
-  sl: "₹280",
-  status: "Target 1 Hit"
-};
+const callFeedsList = [
+  {
+    script: "BUY BANKNIFTY 48800 CALL @ ₹340",
+    segment: "Index Option Intraday | Horizon: 1 Session",
+    t1: "₹410",
+    t2: "₹480",
+    sl: "₹290",
+    status: "Target 1 Hit 🎯"
+  },
+  {
+    script: "BUY RELIANCE 3000 CALL @ ₹45",
+    segment: "Stock Option Intraday | Single Stock F&O",
+    t1: "₹58",
+    t2: "₹72",
+    sl: "₹36",
+    status: "Target 2 Hit 🚀"
+  },
+  {
+    script: "BUY TATASTEEL CASH @ ₹172",
+    segment: "Stock Cash Equity Intraday | Momentum",
+    t1: "₹181",
+    t2: "₹188",
+    sl: "₹166",
+    status: "Target 1 Hit 🎯"
+  },
+  {
+    script: "BUY GOLD MCX 72500 CALL @ ₹480",
+    segment: "Commodity Intraday | MCX Bullion",
+    t1: "₹560",
+    t2: "₹640",
+    sl: "₹420",
+    status: "Achieved +35% 📈"
+  },
+  {
+    script: "BUY NIFTY 23500 CALL @ ₹115",
+    segment: "Index Option Intraday | NIFTY 50",
+    t1: "₹145",
+    t2: "₹175",
+    sl: "₹92",
+    status: "Target 2 Hit 🚀"
+  }
+];
+
+let currentCallIndex = 0;
 
 function initLiveSignalEngine() {
   const scriptEl = document.getElementById('liveCallScript');
@@ -351,21 +387,39 @@ function initLiveSignalEngine() {
   const t2El = document.getElementById('liveCallT2');
   const slEl = document.getElementById('liveCallSL');
   const badgeEl = document.getElementById('liveCallBadge');
+  const cardEl = document.querySelector('.sample-call-card');
 
   if (!scriptEl) return;
 
-  scriptEl.textContent = activeCallFeed.script;
-  if (segEl) segEl.textContent = activeCallFeed.segment;
-  if (t1El) t1El.textContent = activeCallFeed.t1;
-  if (t2El) t2El.textContent = activeCallFeed.t2;
-  if (slEl) slEl.textContent = activeCallFeed.sl;
-  if (badgeEl) badgeEl.textContent = activeCallFeed.status;
+  function renderCurrentCall() {
+    const feed = callFeedsList[currentCallIndex];
+    if (cardEl) cardEl.style.opacity = '0.5';
+
+    setTimeout(() => {
+      scriptEl.textContent = feed.script;
+      if (segEl) segEl.textContent = feed.segment;
+      if (t1El) t1El.textContent = feed.t1;
+      if (t2El) t2El.textContent = feed.t2;
+      if (slEl) slEl.textContent = feed.sl;
+      if (badgeEl) badgeEl.textContent = feed.status;
+      if (cardEl) cardEl.style.opacity = '1';
+    }, 150);
+  }
+
+  renderCurrentCall();
+
+  // Auto-cycle signals every 8 seconds
+  setInterval(() => {
+    currentCallIndex = (currentCallIndex + 1) % callFeedsList.length;
+    renderCurrentCall();
+  }, 8000);
 }
 
 window.updateLiveAnalystCall = function(newCall) {
-  Object.assign(activeCallFeed, newCall);
+  callFeedsList[currentCallIndex] = newCall;
   initLiveSignalEngine();
 };
+
 
 /* --------------------------------------------------------------------------
    4. THROTTLED SCROLL OBSERVERS
