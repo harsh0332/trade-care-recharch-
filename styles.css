@@ -999,6 +999,24 @@ a:hover { color: #34D399; }
     display: block;
   }
 
+  /* Mobile Header Search & Toggle Fix */
+  .nav-search-trigger {
+    padding: 0.45rem 0.65rem !important;
+    font-size: 0.85rem !important;
+  }
+  .nav-search-trigger kbd {
+    display: none !important;
+  }
+  .mobile-toggle {
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.25rem !important;
+  }
+
+
 /* ==========================================================================
    OPTIMIZED HERO STATS BAR & VIDEO PRESENTATION MODAL STYLES
    ========================================================================== */
