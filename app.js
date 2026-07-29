@@ -498,14 +498,45 @@ function initAiModalHandlers() {
 
 function initTradingClock() {
   const clockEl = document.getElementById('istLiveClock');
-  if (!clockEl) return;
-  function updateClock() {
+  const badgeEl = document.getElementById('marketStatusBadge');
+
+  function updateClockAndStatus() {
     const now = new Date();
-    clockEl.textContent = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' IST';
+    if (clockEl) {
+      clockEl.textContent = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' IST';
+    }
+
+    if (badgeEl) {
+      const istStr = now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+      const istDate = new Date(istStr);
+      const day = istDate.getDay(); // 0 = Sun, 6 = Sat
+      const hours = istDate.getHours();
+      const minutes = istDate.getMinutes();
+      const totalMins = hours * 60 + minutes;
+
+      const isWeekday = day >= 1 && day <= 5;
+      const isMarketOpen = isWeekday && (totalMins >= 555 && totalMins <= 930); // 9:15 AM (555) to 3:30 PM (930)
+
+      if (isMarketOpen) {
+        badgeEl.className = 'badge badge-gold';
+        badgeEl.style.background = '';
+        badgeEl.style.borderColor = '';
+        badgeEl.style.color = '';
+        badgeEl.innerHTML = `<span class="status-pulse-dot" style="background: #10B981;"></span> Live Market Open`;
+      } else {
+        badgeEl.className = 'badge badge-sebi';
+        badgeEl.style.background = 'rgba(239, 68, 68, 0.15)';
+        badgeEl.style.borderColor = 'rgba(239, 68, 68, 0.35)';
+        badgeEl.style.color = '#FCA5A5';
+        badgeEl.innerHTML = `<span class="status-pulse-dot" style="background: #EF4444; animation: none;"></span> Market Closed (Reopens 9:15 AM IST)`;
+      }
+    }
   }
-  updateClock();
-  setInterval(updateClock, 1000);
+
+  updateClockAndStatus();
+  setInterval(updateClockAndStatus, 1000);
 }
+
 
 /* --------------------------------------------------------------------------
    6. ULTRA-RICH INTERACTIVE AI TRADING WORKSPACE ENGINES (#personalizedAiDashboard)
