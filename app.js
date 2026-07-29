@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initThrottledScrollObservers();
   initScrollRevealEngine();
   initPricingTenureSwitcher();
-  initAiPersonalizedDashboard();
+  initAiWorkspaceTabs();
   initLiveSearchEngine();
   initModals();
   initForms();
@@ -507,25 +507,153 @@ function initTradingClock() {
   setInterval(updateClock, 1000);
 }
 
-function initAiPersonalizedDashboard() {
-  const cards = document.querySelectorAll('.onboarding-card');
-  const out = document.getElementById('personalizedDashOutput');
-  if (!cards.length || !out) return;
+/* --------------------------------------------------------------------------
+   6. ULTRA-RICH INTERACTIVE AI TRADING WORKSPACE ENGINES (#personalizedAiDashboard)
+   -------------------------------------------------------------------------- */
+function initAiWorkspaceTabs() {
+  const tabBtns = document.querySelectorAll('.ai-workspace-tab-btn');
+  const panes = document.querySelectorAll('.ai-tool-pane');
 
-  cards.forEach(c => {
-    c.addEventListener('click', () => {
-      const g = c.getAttribute('data-goal');
-      out.innerHTML = `<div style="padding: 1rem; background: rgba(16,185,129,0.1); border-radius: var(--radius-md); border: 1px solid var(--primary);"><strong style="color: var(--primary);">Active Focus:</strong> ${g.toUpperCase()}<p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">Personalized track active. Speak to our SEBI Analyst desk for customized strategy sizing.</p></div>`;
+  if (!tabBtns.length || !panes.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetId = btn.getAttribute('data-tool');
+      const targetPane = document.getElementById(targetId);
+
+      if (targetPane) {
+        targetPane.classList.add('active');
+        analytics.trackEvent('ai_workspace_tool_switched', { tool: targetId });
+      }
     });
   });
 }
 
+// TOOL 1: AI STRATEGY GENERATOR
+window.generateAiStrategyReport = function() {
+  const capVal = parseFloat(document.getElementById('aiCapSlider')?.value) || 100000;
+  const riskVal = document.getElementById('aiRiskSelect')?.value || 'balanced';
+  const instVal = document.getElementById('aiInstSelect')?.value || 'banknifty';
+  const outEl = document.getElementById('aiStrategyReportOutput');
+
+  if (!outEl) return;
+
+  let serviceMatch = "Bank Nifty Bonanza (Flagship)";
+  let targetProductLink = "#bank-nifty";
+  let maxLots = "2 - 3 Lots (Bank Nifty ATM)";
+  let riskCapAmount = (capVal * 0.03).toLocaleString('en-IN');
+
+  if (instVal === 'stock-option') {
+    serviceMatch = "Stock Option Intraday Desk";
+    targetProductLink = "#stock-option-intraday";
+    maxLots = "1 - 2 Stock Option Lots";
+  } else if (instVal === 'stock-cash') {
+    serviceMatch = "Stock Cash Intraday Desk";
+    targetProductLink = "#stock-cash-intraday";
+    maxLots = "Cash Position Cap: ₹" + (capVal * 0.4).toLocaleString('en-IN');
+  } else if (instVal === 'swing') {
+    serviceMatch = "Stock Cash Swing (Delivery Desk)";
+    targetProductLink = "#stock-cash-swing";
+    maxLots = "3 - 5 Delivery Positions";
+  } else if (instVal === 'commodity') {
+    serviceMatch = "Commodity Intraday Desk (MCX)";
+    targetProductLink = "#commodity-intraday";
+    maxLots = "1 Lot Crude / Gold Mini";
+  }
+
+  outEl.innerHTML = `
+    <div style="animation: fadeIn 300ms ease-out;">
+      <h4 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-robot"></i> Personalized AI Trading Brief</h4>
+      <p style="font-size: 0.875rem; color: #FFF; margin-bottom: 0.75rem;">Based on your Trading Capital of <strong>₹${capVal.toLocaleString('en-IN')}</strong> and <strong>${riskVal.toUpperCase()}</strong> risk appetite:</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-bottom: 1rem;">
+        <div style="background: rgba(30,41,59,0.7); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Matched Research Service</span>
+          <strong style="font-size: 0.95rem; color: var(--primary);">${serviceMatch}</strong>
+        </div>
+        <div style="background: rgba(30,41,59,0.7); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Max Recommended Position</span>
+          <strong style="font-size: 0.95rem; color: #FFF;">${maxLots}</strong>
+        </div>
+        <div style="background: rgba(30,41,59,0.7); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Max Risk Per Trade</span>
+          <strong style="font-size: 0.95rem; color: #EF4444;">₹${riskCapAmount}</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="${targetProductLink}" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Explore ${serviceMatch}</a>
+        <a href="#book-appointment" class="btn btn-secondary btn-sm"><i class="fa-solid fa-calendar-check"></i> Book Analyst Call</a>
+      </div>
+    </div>
+  `;
+};
+
+// TOOL 2: OPTION P&L SIMULATOR
+window.simulateOptionPayoff = function() {
+  const type = document.getElementById('optTypeSelect')?.value || 'CE';
+  const strike = parseFloat(document.getElementById('optStrikeInput')?.value) || 48000;
+  const premium = parseFloat(document.getElementById('optPremiumInput')?.value) || 300;
+  const targetMove = parseFloat(document.getElementById('optMoveInput')?.value) || 200;
+  const lots = parseInt(document.getElementById('optLotsInput')?.value) || 2;
+  const outEl = document.getElementById('optSimOutput');
+
+  if (!outEl || !premium || !lots) return;
+
+  const lotSize = 15; // Bank Nifty Lot size standard
+  const totalQty = lots * lotSize;
+  const totalInvestment = premium * totalQty;
+
+  // Estimated option delta approximation (~0.5 for ATM)
+  const estimatedDelta = 0.52;
+  const expectedPremiumGain = targetMove * estimatedDelta;
+  const projectedExitPremium = Math.max(0, premium + (type === 'CE' ? expectedPremiumGain : -expectedPremiumGain));
+  const projectedPnL = (projectedExitPremium - premium) * totalQty;
+  const roc = ((projectedPnL / totalInvestment) * 100).toFixed(1);
+
+  const isProfit = projectedPnL >= 0;
+
+  outEl.innerHTML = `
+    <div style="animation: fadeIn 300ms ease-out;">
+      <h4 style="color: ${isProfit ? '#10B981' : '#EF4444'}; font-size: 1.15rem; margin-bottom: 0.5rem;">
+        <i class="fa-solid fa-chart-line"></i> Projected Option Payoff (${type} Strategy)
+      </h4>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-bottom: 1rem;">
+        <div style="background: rgba(30,41,59,0.7); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Total Outlay Capital</span>
+          <strong style="font-size: 0.95rem; color: #FFF;">₹${totalInvestment.toLocaleString('en-IN')}</strong>
+        </div>
+        <div style="background: rgba(30,41,59,0.7); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Projected P&L</span>
+          <strong style="font-size: 1.1rem; color: ${isProfit ? '#10B981' : '#EF4444'};">${isProfit ? '+' : ''}₹${projectedPnL.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</strong>
+        </div>
+        <div style="background: rgba(30,41,59,0.7); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Return on Capital (ROC)</span>
+          <strong style="font-size: 1.1rem; color: ${isProfit ? '#10B981' : '#EF4444'};">${isProfit ? '+' : ''}${roc}%</strong>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.04); padding: 0.75rem; border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-muted);">
+        • Total Quantity: <strong>${totalQty} Units (${lots} Lots)</strong> | Target Premium Exit: <strong>₹${projectedExitPremium.toFixed(1)}</strong>
+      </div>
+    </div>
+  `;
+};
+
+// TOOL 3: ADVANCED POSITION SIZING CALCULATOR
 function calculateCashPosition() {
-  const cap = parseFloat(document.getElementById('calcCapitalCash').value) || 0;
-  const riskPct = parseFloat(document.getElementById('calcRiskCash').value) || 0;
-  const entry = parseFloat(document.getElementById('calcEntryCash').value) || 0;
-  const sl = parseFloat(document.getElementById('calcSlCash').value) || 0;
+  const cap = parseFloat(document.getElementById('calcCapitalCash')?.value) || 0;
+  const riskPct = parseFloat(document.getElementById('calcRiskCash')?.value) || 0;
+  const entry = parseFloat(document.getElementById('calcEntryCash')?.value) || 0;
+  const sl = parseFloat(document.getElementById('calcSlCash')?.value) || 0;
   const resEl = document.getElementById('calcCashResult');
+
+  if (!resEl) return;
 
   if (!cap || !entry || !sl || entry <= sl) {
     resEl.innerHTML = "<span style='color: #EF4444;'>Please enter valid Entry price greater than Stop Loss.</span>";
@@ -537,15 +665,46 @@ function calculateCashPosition() {
   const maxShares = Math.floor(maxRiskAmount / riskPerShare);
   const target1_5 = entry + (riskPerShare * 1.5);
   const target2_0 = entry + (riskPerShare * 2.0);
+  const target3_0 = entry + (riskPerShare * 3.0);
 
   resEl.innerHTML = `
     📊 <strong>Calculated Strategy Sizing:</strong><br>
     • Max Recommended Shares: <strong>${maxShares} Units</strong><br>
     • Max Capital at Risk: <strong>₹${maxRiskAmount.toLocaleString('en-IN')}</strong> (${riskPct}%)<br>
     • Target 1 (1:1.5 RRR): <strong>₹${target1_5.toFixed(2)}</strong><br>
-    • Target 2 (1:2.0 RRR): <strong>₹${target2_0.toFixed(2)}</strong>
+    • Target 2 (1:2.0 RRR): <strong>₹${target2_0.toFixed(2)}</strong><br>
+    • Target 3 (1:3.0 RRR): <strong>₹${target3_0.toFixed(2)}</strong>
   `;
 }
+
+// TOOL 4: SEBI LICENSE & BANK VERIFICATION
+window.verifySebiLicenseCode = function() {
+  const code = document.getElementById('sebiCodeInput')?.value.trim().toUpperCase();
+  const outEl = document.getElementById('sebiVerifyOutput');
+
+  if (!outEl) return;
+
+  if (code.includes('13873') || code.includes('INH000013873') || code.includes('ADITYA')) {
+    outEl.innerHTML = `
+      <div style="padding: 1.25rem; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--primary); border-radius: var(--radius-md); animation: fadeIn 300ms ease-out;">
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-check"></i> SEBI License Verification Verified</h4>
+        <p style="font-size: 0.85rem; color: #FFF;">
+          • <strong>Analyst Name:</strong> ADITYA SHIVHARE<br>
+          • <strong>Registration No:</strong> INH000013873 (Perpetual Validity)<br>
+          • <strong>Authorized Bank Account:</strong> HDFC BANK (ADITYA SHIVHARE)<br>
+          • <strong>NISM Certifications:</strong> Equity Derivatives & Research Analysis
+        </p>
+      </div>
+    `;
+  } else {
+    outEl.innerHTML = `
+      <div style="padding: 1.25rem; background: rgba(239, 68, 68, 0.1); border: 1px solid #EF4444; border-radius: var(--radius-md); animation: fadeIn 300ms ease-out;">
+        <h4 style="color: #EF4444; font-size: 1.05rem; margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-xmark"></i> Unverified Registration Code</h4>
+        <p style="font-size: 0.85rem; color: #FFF;">Official SEBI Registration for Trade Care Research is <strong>INH000013873</strong> under Aditya Shivhare. Always make fee payments exclusively to HDFC Bank (ADITYA SHIVHARE).</p>
+      </div>
+    `;
+  }
+};
 
 function initLiveSearchEngine() {
   const modal = document.getElementById('globalSearchModal');

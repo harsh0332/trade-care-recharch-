@@ -590,39 +590,214 @@
       </div>
     </section>
 
-    <!-- PAGE 5: PERSONALIZED AI WORKSPACE -->
+    <!-- PAGE 5: ULTRA-RICH INTERACTIVE AI TRADING WORKSPACE -->
     <section id="personalizedAiDashboard" class="page-view">
       <div class="inner-banner">
         <div class="container">
-          <h1>AI-Powered Trading Workspace</h1>
-          <p>Customize your learning path, analyze trading parameters, and build a research brief for analyst consultation.</p>
+          <h1>AI Interactive Trading Workspace</h1>
+          <p>Interactive self-service quant tools: AI Strategy Builder, Option P&L Payoff Simulator, Position Sizer, and SEBI License Verifier.</p>
         </div>
       </div>
 
       <div class="section-padding">
         <div class="container">
-          <div class="dashboard-card reveal-on-scroll">
-            <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye" style="color: var(--primary);"></i> Select Your Primary Focus Today</h4>
-            <div class="onboarding-grid">
-              <div class="onboarding-card" data-goal="options">
-                <i class="fa-solid fa-chart-pie" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
-                <h5 style="color: #FFF; font-size: 0.95rem;">Stock Options & Bank Nifty</h5>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">Explore high-momentum intraday derivative strategies.</p>
-              </div>
-              <div class="onboarding-card" data-goal="risk">
-                <i class="fa-solid fa-calculator" style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem;"></i>
-                <h5 style="color: #FFF; font-size: 0.95rem;">Risk & Capital Allocation</h5>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">Calculate position sizing and 1:1.5+ risk-reward ratios.</p>
-              </div>
-              <div class="onboarding-card" data-goal="sebi">
-                <i class="fa-solid fa-building-columns" style="font-size: 1.5rem; color: var(--accent-blue); margin-bottom: 0.5rem;"></i>
-                <h5 style="color: #FFF; font-size: 0.95rem;">SEBI Verification & Trust</h5>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">Verify license INH000013873 and download disclosures.</p>
+          
+          <div class="ai-workspace-container reveal-on-scroll">
+            
+            <!-- TOOL TAB NAVIGATOR -->
+            <div class="ai-workspace-nav">
+              <button class="ai-workspace-tab-btn active" data-tool="tool-strategy-builder">
+                <i class="fa-solid fa-robot" style="color: var(--primary);"></i> 1. AI Strategy Builder
+              </button>
+              <button class="ai-workspace-tab-btn" data-tool="tool-option-simulator">
+                <i class="fa-solid fa-chart-line" style="color: var(--accent-gold);"></i> 2. Option P&L Simulator
+              </button>
+              <button class="ai-workspace-tab-btn" data-tool="tool-position-sizer">
+                <i class="fa-solid fa-calculator" style="color: var(--accent-blue);"></i> 3. Position Sizer & Risk
+              </button>
+              <button class="ai-workspace-tab-btn" data-tool="tool-sebi-verifier">
+                <i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> 4. SEBI License Verifier
+              </button>
+            </div>
+
+            <!-- TOOL PANE 1: AI STRATEGY BUILDER -->
+            <div id="tool-strategy-builder" class="ai-tool-pane active">
+              <div class="ai-tool-card">
+                <h3 style="font-size: 1.3rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-sliders" style="color: var(--primary);"></i> AI Personal Trading Strategy Generator</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Select your available capital, risk appetite, and trading segment. Our AI engine will instantly compute your optimal position cap, lot limits, and matched SEBI research service.</p>
+
+                <div class="grid-2col-responsive">
+                  <div>
+                    <div class="range-slider-wrap">
+                      <label>Trading Capital: <strong id="capValDisplay">₹1,00,000</strong></label>
+                      <input type="range" id="aiCapSlider" min="25000" max="1000000" step="25000" value="100000" class="range-input" oninput="document.getElementById('capValDisplay').textContent = '₹' + parseInt(this.value).toLocaleString('en-IN')">
+                    </div>
+
+                    <div class="form-group">
+                      <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Risk Tolerance Profile</label>
+                      <select id="aiRiskSelect" class="form-control">
+                        <option value="balanced">Balanced (1.5% - 2% Risk Per Trade)</option>
+                        <option value="conservative">Conservative (1% Risk Per Trade)</option>
+                        <option value="aggressive">Aggressive (3% - 5% Risk Per Trade)</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Primary Trading Instrument</label>
+                      <select id="aiInstSelect" class="form-control">
+                        <option value="banknifty">Bank Nifty Index Options</option>
+                        <option value="stock-option">Stock Option Intraday</option>
+                        <option value="stock-cash">Stock Cash Intraday</option>
+                        <option value="commodity">MCX Commodity (Gold/Crude)</option>
+                        <option value="swing">Stock Cash Swing (Delivery)</option>
+                      </select>
+                    </div>
+
+                    <button onclick="generateAiStrategyReport()" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate AI Strategy Brief</button>
+                  </div>
+
+                  <div id="aiStrategyReportOutput" class="ai-output-result-box" style="margin-top: 0;">
+                    <div style="text-align: center; padding: 2rem 1rem; color: var(--text-muted);">
+                      <i class="fa-solid fa-circle-nodes" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem;"></i>
+                      <p style="font-size: 0.875rem;">Adjust parameters on the left and tap <strong>"Generate AI Strategy Brief"</strong> to view personalized position sizing and strategy match.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div id="personalizedDashOutput" style="margin-top: 1.5rem;"></div>
+            <!-- TOOL PANE 2: OPTION P&L SIMULATOR -->
+            <div id="tool-option-simulator" class="ai-tool-pane">
+              <div class="ai-tool-card">
+                <h3 style="font-size: 1.3rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-chart-line" style="color: var(--accent-gold);"></i> Option Strategy Payoff & Profit/Loss Simulator</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Simulate option buying payoffs (Nifty / Bank Nifty) based on strike selection, entry premium, and target spot movements.</p>
+
+                <div class="grid-2col-responsive">
+                  <div>
+                    <div class="form-row-2col">
+                      <div class="form-group">
+                        <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Option Type</label>
+                        <select id="optTypeSelect" class="form-control">
+                          <option value="CE">CALL (CE) - Bullish View</option>
+                          <option value="PE">PUT (PE) - Bearish View</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Strike Price (₹)</label>
+                        <input type="number" id="optStrikeInput" value="48000" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                      <div class="form-group">
+                        <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Buy Premium Price (₹)</label>
+                        <input type="number" id="optPremiumInput" value="300" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Lots Count (15 Qty/Lot)</label>
+                        <input type="number" id="optLotsInput" value="2" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Expected Spot Move (Points +/-)</label>
+                      <input type="number" id="optMoveInput" value="200" class="form-control" placeholder="e.g. +200 points">
+                    </div>
+
+                    <button onclick="simulateOptionPayoff()" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-play"></i> Simulate Option Payoff & P&L</button>
+                  </div>
+
+                  <div id="optSimOutput" class="ai-output-result-box" style="margin-top: 0;">
+                    <div style="text-align: center; padding: 2rem 1rem; color: var(--text-muted);">
+                      <i class="fa-solid fa-chart-pie" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 0.75rem;"></i>
+                      <p style="font-size: 0.875rem;">Fill option strike & premium details and tap <strong>"Simulate Option Payoff"</strong> to calculate expected capital returns.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TOOL PANE 3: POSITION SIZER & RISK CALCULATOR -->
+            <div id="tool-position-sizer" class="ai-tool-pane">
+              <div class="ai-tool-card">
+                <h3 style="font-size: 1.3rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-calculator" style="color: var(--accent-blue);"></i> Position Size & Target Matrix Calculator</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Calculate recommended share quantity and 1:1.5, 1:2.0, and 1:3.0 target price levels before taking trades.</p>
+
+                <div class="grid-2col-responsive">
+                  <div>
+                    <div class="form-row-2col">
+                      <div class="form-group">
+                        <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Total Account Capital (₹)</label>
+                        <input type="number" id="calcCapitalCash" value="100000" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Max Risk Per Trade (%)</label>
+                        <input type="number" id="calcRiskCash" value="2" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                      <div class="form-group">
+                        <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Entry Price (₹)</label>
+                        <input type="number" id="calcEntryCash" value="500" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Stop Loss Price (₹)</label>
+                        <input type="number" id="calcSlCash" value="490" class="form-control">
+                      </div>
+                    </div>
+
+                    <button onclick="calculateCashPosition()" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-calculator"></i> Calculate Position Sizing & Targets</button>
+                  </div>
+
+                  <div id="calcCashResult" class="ai-output-result-box" style="margin-top: 0; color: #FFF; font-weight: 500;">
+                    <div style="text-align: center; padding: 2rem 1rem; color: var(--text-muted);">
+                      <i class="fa-solid fa-scale-balanced" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 0.75rem;"></i>
+                      <p style="font-size: 0.875rem;">Enter trade prices and tap <strong>"Calculate Position Sizing"</strong> to view strict 1:1.5+ risk-reward levels.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TOOL PANE 4: SEBI LICENSE & BANK VERIFICATION -->
+            <div id="tool-sebi-verifier" class="ai-tool-pane">
+              <div class="ai-tool-card">
+                <h3 style="font-size: 1.3rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> SEBI License & HDFC Payment Portal Verification</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Verify statutory SEBI credentials for Aditya Shivhare (Reg No: INH000013873) and official HDFC Bank account details.</p>
+
+                <div class="grid-2col-responsive">
+                  <div>
+                    <div class="form-group">
+                      <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Enter SEBI License No or Analyst Name</label>
+                      <input type="text" id="sebiCodeInput" value="INH000013873" class="form-control" placeholder="e.g. INH000013873 or Aditya Shivhare">
+                    </div>
+
+                    <button onclick="verifySebiLicenseCode()" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-certificate"></i> Verify Registration Status</button>
+
+                    <div style="margin-top: 1.5rem; background: rgba(255,255,255,0.04); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                      <h5 style="color: var(--accent-gold); font-size: 0.85rem; margin-bottom: 0.35rem;"><i class="fa-solid fa-triangle-exclamation"></i> SEBI Cautionary Guidelines</h5>
+                      <p style="font-size: 0.775rem; color: var(--text-muted); line-height: 1.5;">Never make subscription fee payments to unverified personal UPI IDs. All fee payments must be remitted strictly to HDFC Bank under <strong>ADITYA SHIVHARE</strong>.</p>
+                    </div>
+                  </div>
+
+                  <div id="sebiVerifyOutput" class="ai-output-result-box" style="margin-top: 0;">
+                    <div style="padding: 1.25rem; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--primary); border-radius: var(--radius-md);">
+                      <h4 style="color: var(--primary); font-size: 1.05rem; margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-check"></i> Statutory License Details</h4>
+                      <p style="font-size: 0.85rem; color: #FFF; line-height: 1.6;">
+                        • <strong>Principal Analyst:</strong> ADITYA SHIVHARE<br>
+                        • <strong>SEBI Reg No:</strong> INH000013873 (Perpetual)<br>
+                        • <strong>Registered Address:</strong> House No. 175 Goya Colony, Bhopal M.P - 462038<br>
+                        • <strong>Verified Bank:</strong> HDFC BANK (ADITYA SHIVHARE)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
+
         </div>
       </div>
     </section>
