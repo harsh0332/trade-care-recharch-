@@ -1,6 +1,6 @@
 /* ==========================================================================
    TRADE CARE RESEARCH - HIGH-PERFORMANCE MASTER CLIENT ENGINE (60 FPS)
-   Preloader Overlay, Scroll Reveal Section Animations, Smart AI RAG Engine & 24-Page Routing
+   Preloader Overlay, Scroll Reveal Section Animations, Interactive Pricing Switcher, Smart AI RAG Engine & 24-Page Routing
    ========================================================================== */
 
 class RagKnowledgeEngine {
@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTradingClock();
   initThrottledScrollObservers();
   initScrollRevealEngine();
+  initPricingTenureSwitcher();
   initAiPersonalizedDashboard();
   initLiveSearchEngine();
   initModals();
@@ -192,6 +193,38 @@ function initScrollRevealEngine() {
   }, observerOptions);
 
   revealElements.forEach(el => revealObserver.observe(el));
+}
+
+/* --------------------------------------------------------------------------
+   000. INTERACTIVE SERVICE PRICING TENURE SWITCHER
+   -------------------------------------------------------------------------- */
+function initPricingTenureSwitcher() {
+  document.querySelectorAll('.pricing-block-card').forEach(card => {
+    const tabs = card.querySelectorAll('.tenure-tab-btn');
+    const priceVal = card.querySelector('.price-val');
+    const pricePeriod = card.querySelector('.price-period');
+
+    if (!tabs.length || !priceVal) return;
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const newPrice = tab.getAttribute('data-price');
+        const newPeriod = tab.getAttribute('data-period');
+
+        if (newPrice) priceVal.textContent = newPrice;
+        if (newPeriod && pricePeriod) pricePeriod.textContent = newPeriod;
+
+        analytics.trackEvent('pricing_tenure_switched', {
+          service: card.querySelector('h3')?.textContent || 'Service',
+          tenure: tab.textContent.trim(),
+          price: newPrice
+        });
+      });
+    });
+  });
 }
 
 /* --------------------------------------------------------------------------

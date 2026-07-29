@@ -391,7 +391,7 @@
         </div>
       </div>
 
-      <!-- FUNNEL STEP 6: DIRECT ANALYST ADVISORY CONSULTATION (PRIMARY CONVERSION GOAL) -->
+      <!-- FUNNEL STEP 6: DIRECT ANALYST ADVISORY CONSULTATION -->
       <div class="section-padding reveal-on-scroll">
         <div class="container" style="max-width: 800px;">
           <div style="background: var(--bg-card); padding: 2.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
@@ -406,7 +406,7 @@
                 <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Full Name *</label>
                 <input type="text" placeholder="Enter your full name" class="form-control" required>
               </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Mobile Number *</label>
                   <input type="tel" placeholder="+91 98765 43210" class="form-control" required>
@@ -445,7 +445,7 @@
 
       <div class="section-padding">
         <div class="container">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+          <div class="grid-2col-responsive">
             <div class="reveal-left">
               <span class="badge badge-sebi"><i class="fa-solid fa-award"></i> Principal Analyst Profile</span>
               <h2 style="font-size: 2.2rem; margin: 0.75rem 0 1.25rem;">Aditya Shivhare — SEBI Registered Research Analyst</h2>
@@ -627,89 +627,330 @@
       </div>
     </section>
 
-    <!-- PAGE 6: PRICING MATRIX -->
+    <!-- PAGE 6: REDESIGNED ANIMATED SERVICE PRICING BLOCKS -->
     <section id="pricing" class="page-view">
       <div class="inner-banner">
         <div class="container">
-          <h1>Consolidated Subscription Pricing</h1>
-          <p>Transparent fee structures for all 7 research products across Monthly, Quarterly, Half-Yearly, and Annual tenures.</p>
+          <h1>Subscription Packages & Fee Structure</h1>
+          <p>Transparent fee structures defined for all 7 SEBI registered research products with interactive tenure options.</p>
         </div>
       </div>
 
       <div class="section-padding">
         <div class="container">
-          <div class="pricing-table-container reveal-on-scroll">
-            <table class="pricing-table">
-              <thead>
-                <tr>
-                  <th>Research Service</th>
-                  <th>Monthly</th>
-                  <th>Quarterly</th>
-                  <th>Half-Yearly</th>
-                  <th>Yearly</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Stock Cash Intraday</strong></td>
-                  <td>₹7,000</td>
-                  <td>₹15,000</td>
-                  <td>₹30,000</td>
-                  <td>₹50,000</td>
-                  <td><a href="#fast-payment" class="btn btn-primary btn-sm">Buy Now</a></td>
-                </tr>
-                <tr>
-                  <td><strong>Stock Option Intraday</strong></td>
-                  <td>₹9,000</td>
-                  <td>₹25,000</td>
-                  <td>₹40,000</td>
-                  <td>₹60,000</td>
-                  <td><a href="#fast-payment" class="btn btn-primary btn-sm">Buy Now</a></td>
-                </tr>
-                <tr>
-                  <td><strong>Stock Future Intraday</strong></td>
-                  <td>₹9,000</td>
-                  <td>₹25,000</td>
-                  <td>₹40,000</td>
-                  <td>₹60,000</td>
-                  <td><a href="#fast-payment" class="btn btn-primary btn-sm">Buy Now</a></td>
-                </tr>
-                <tr>
-                  <td><strong>Index Option Intraday</strong></td>
-                  <td>₹9,000</td>
-                  <td>₹25,000</td>
-                  <td>₹40,000</td>
-                  <td>₹60,000</td>
-                  <td><a href="#fast-payment" class="btn btn-primary btn-sm">Buy Now</a></td>
-                </tr>
-                <tr>
-                  <td><strong>Commodity Intraday</strong></td>
-                  <td>₹9,000</td>
-                  <td>₹25,000</td>
-                  <td>₹40,000</td>
-                  <td>₹60,000</td>
-                  <td><a href="#fast-payment" class="btn btn-primary btn-sm">Buy Now</a></td>
-                </tr>
-                <tr>
-                  <td><strong>Stock Cash Swing</strong></td>
-                  <td>₹14,999</td>
-                  <td>₹32,499</td>
-                  <td>₹44,999</td>
-                  <td>₹74,999</td>
-                  <td><a href="#fast-payment" class="btn btn-primary btn-sm">Buy Now</a></td>
-                </tr>
-                <tr>
-                  <td><strong>Bank Nifty Bonanza</strong></td>
-                  <td>₹25,000</td>
-                  <td>₹55,000</td>
-                  <td>₹91,000</td>
-                  <td>₹1,50,000</td>
-                  <td><a href="#fast-payment" class="btn btn-primary btn-sm">Buy Now</a></td>
-                </tr>
-              </tbody>
-            </table>
+          
+          <div class="section-header">
+            <span class="badge badge-gold"><i class="fa-solid fa-tags"></i> Pricing Blocks</span>
+            <h2>Select Research Package & Tenure</h2>
+            <p>Tap tenure tabs (Monthly, Quarterly, Half-Yearly, Annual) to view instant discounted rates.</p>
           </div>
+
+          <!-- 7 INDIVIDUAL INTERACTIVE SERVICE PRICING BLOCKS -->
+          <div class="pricing-blocks-grid">
+
+            <!-- Block 1: Stock Cash Intraday -->
+            <div class="pricing-block-card reveal-left">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="badge badge-sebi">Cash Equity</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);"><i class="fa-solid fa-bolt"></i> 20-22 Calls/Mo</span>
+                </div>
+                <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.4rem;">Stock Cash Intraday</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">VWAP breakout recommendations in liquid NSE equity stocks with tight risk management.</p>
+                
+                <div class="pricing-tenure-tabs">
+                  <button class="tenure-tab-btn active" data-price="₹7,000" data-period="/ Month">Monthly</button>
+                  <button class="tenure-tab-btn" data-price="₹15,000" data-period="/ Qtr (3 Mo)">Quarterly</button>
+                  <button class="tenure-tab-btn" data-price="₹30,000" data-period="/ 6 Months">Half-Yearly</button>
+                  <button class="tenure-tab-btn" data-price="₹50,000" data-period="/ Year">Annual</button>
+                </div>
+
+                <div class="pricing-price-display">
+                  <span class="price-val">₹7,000</span>
+                  <span class="price-period">/ Month</span>
+                </div>
+
+                <ul class="pricing-features-list">
+                  <li><i class="fa-solid fa-circle-check"></i> High-liquidity cash momentum picks</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Capital required: ₹50,000 - ₹2,00,000</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Minimum 1:1.5 Risk-to-Reward ratio</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Real-time SMS & WhatsApp alerts</li>
+                </ul>
+              </div>
+              <a href="#fast-payment" class="btn btn-primary" style="width: 100%; margin-top: 1rem;"><i class="fa-solid fa-credit-card"></i> Subscribe via HDFC</a>
+            </div>
+
+            <!-- Block 2: Stock Option Intraday -->
+            <div class="pricing-block-card reveal-on-scroll">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="badge badge-gold">F&O Options</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);"><i class="fa-solid fa-bolt"></i> 15-20 Calls/Mo</span>
+                </div>
+                <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.4rem;">Stock Option Intraday</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Single stock option buying setups focusing on Implied Volatility (IV) expansion & strike selection.</p>
+                
+                <div class="pricing-tenure-tabs">
+                  <button class="tenure-tab-btn active" data-price="₹9,000" data-period="/ Month">Monthly</button>
+                  <button class="tenure-tab-btn" data-price="₹25,000" data-period="/ Qtr (3 Mo)">Quarterly</button>
+                  <button class="tenure-tab-btn" data-price="₹40,000" data-period="/ 6 Months">Half-Yearly</button>
+                  <button class="tenure-tab-btn" data-price="₹60,000" data-period="/ Year">Annual</button>
+                </div>
+
+                <div class="pricing-price-display">
+                  <span class="price-val">₹9,000</span>
+                  <span class="price-period">/ Month</span>
+                </div>
+
+                <ul class="pricing-features-list">
+                  <li><i class="fa-solid fa-circle-check"></i> ATM & Near OTM option buying calls</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Capital required: ₹75,000 - ₹3,00,000</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Option chain OI unwinding analysis</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Fast intraday execution alerts</li>
+                </ul>
+              </div>
+              <a href="#fast-payment" class="btn btn-primary" style="width: 100%; margin-top: 1rem;"><i class="fa-solid fa-credit-card"></i> Subscribe via HDFC</a>
+            </div>
+
+            <!-- Block 3: Stock Future Intraday -->
+            <div class="pricing-block-card reveal-right">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="badge badge-sebi">F&O Futures</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);"><i class="fa-solid fa-bolt"></i> 15-20 Calls/Mo</span>
+                </div>
+                <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.4rem;">Stock Future Intraday</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Leveraged single-stock futures setups with volume analysis and Anchored VWAP confirmation.</p>
+                
+                <div class="pricing-tenure-tabs">
+                  <button class="tenure-tab-btn active" data-price="₹9,000" data-period="/ Month">Monthly</button>
+                  <button class="tenure-tab-btn" data-price="₹25,000" data-period="/ Qtr (3 Mo)">Quarterly</button>
+                  <button class="tenure-tab-btn" data-price="₹40,000" data-period="/ 6 Months">Half-Yearly</button>
+                  <button class="tenure-tab-btn" data-price="₹60,000" data-period="/ Year">Annual</button>
+                </div>
+
+                <div class="pricing-price-display">
+                  <span class="price-val">₹9,000</span>
+                  <span class="price-period">/ Month</span>
+                </div>
+
+                <ul class="pricing-features-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Full contract lot derivative picks</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Capital required: ₹2,00,000 - ₹10,00,000</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Future basis & OI long buildup setups</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Priority broadcast alerts</li>
+                </ul>
+              </div>
+              <a href="#fast-payment" class="btn btn-primary" style="width: 100%; margin-top: 1rem;"><i class="fa-solid fa-credit-card"></i> Subscribe via HDFC</a>
+            </div>
+
+            <!-- Block 4: Index Option Intraday -->
+            <div class="pricing-block-card reveal-left">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="badge badge-gold">Index Derivatives</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);"><i class="fa-solid fa-bolt"></i> 20-22 Calls/Mo</span>
+                </div>
+                <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.4rem;">Index Option Intraday</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Nifty 50 & Bank Nifty option buying setups tailored for fast intraday momentum bursts.</p>
+                
+                <div class="pricing-tenure-tabs">
+                  <button class="tenure-tab-btn active" data-price="₹9,000" data-period="/ Month">Monthly</button>
+                  <button class="tenure-tab-btn" data-price="₹25,000" data-period="/ Qtr (3 Mo)">Quarterly</button>
+                  <button class="tenure-tab-btn" data-price="₹40,000" data-period="/ 6 Months">Half-Yearly</button>
+                  <button class="tenure-tab-btn" data-price="₹60,000" data-period="/ Year">Annual</button>
+                </div>
+
+                <div class="pricing-price-display">
+                  <span class="price-val">₹9,000</span>
+                  <span class="price-period">/ Month</span>
+                </div>
+
+                <ul class="pricing-features-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Nifty & Bank Nifty CE/PE buying</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Put-Call Ratio (PCR) sentiment tracking</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Capital required: ₹50,000 - ₹3,00,000</li>
+                  <li><i class="fa-solid fa-circle-check"></i> High-speed WhatsApp broadcast</li>
+                </ul>
+              </div>
+              <a href="#fast-payment" class="btn btn-primary" style="width: 100%; margin-top: 1rem;"><i class="fa-solid fa-credit-card"></i> Subscribe via HDFC</a>
+            </div>
+
+            <!-- Block 5: Commodity Intraday -->
+            <div class="pricing-block-card reveal-on-scroll">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="badge badge-sebi">MCX Commodities</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);"><i class="fa-solid fa-bolt"></i> 20-22 Calls/Mo</span>
+                </div>
+                <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.4rem;">Commodity Intraday</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">MCX Gold, Silver, Crude Oil, & Natural Gas momentum breakouts for commodity traders.</p>
+                
+                <div class="pricing-tenure-tabs">
+                  <button class="tenure-tab-btn active" data-price="₹9,000" data-period="/ Month">Monthly</button>
+                  <button class="tenure-tab-btn" data-price="₹25,000" data-period="/ Qtr (3 Mo)">Quarterly</button>
+                  <button class="tenure-tab-btn" data-price="₹40,000" data-period="/ 6 Months">Half-Yearly</button>
+                  <button class="tenure-tab-btn" data-price="₹60,000" data-period="/ Year">Annual</button>
+                </div>
+
+                <div class="pricing-price-display">
+                  <span class="price-val">₹9,000</span>
+                  <span class="price-period">/ Month</span>
+                </div>
+
+                <ul class="pricing-features-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Bullion (Gold/Silver) & Energy (Crude/Gas)</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Capital required: ₹1,00,000 - ₹2,50,000</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Intraday MCX technical breakouts</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Instant SMS & WhatsApp API</li>
+                </ul>
+              </div>
+              <a href="#fast-payment" class="btn btn-primary" style="width: 100%; margin-top: 1rem;"><i class="fa-solid fa-credit-card"></i> Subscribe via HDFC</a>
+            </div>
+
+            <!-- Block 6: Stock Cash Swing -->
+            <div class="pricing-block-card reveal-right">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="badge badge-sebi">Equity Delivery</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);"><i class="fa-solid fa-bullseye"></i> Positional</span>
+                </div>
+                <h3 style="font-size: 1.35rem; color: #FFF; margin-bottom: 0.4rem;">Stock Cash Swing</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Short-to-medium term delivery swing picks (3 days to 4 weeks) without margin decay.</p>
+                
+                <div class="pricing-tenure-tabs">
+                  <button class="tenure-tab-btn active" data-price="₹14,999" data-period="/ Month">Monthly</button>
+                  <button class="tenure-tab-btn" data-price="₹32,499" data-period="/ Qtr (3 Mo)">Quarterly</button>
+                  <button class="tenure-tab-btn" data-price="₹44,999" data-period="/ 6 Months">Half-Yearly</button>
+                  <button class="tenure-tab-btn" data-price="₹74,999" data-period="/ Year">Annual</button>
+                </div>
+
+                <div class="pricing-price-display">
+                  <span class="price-val">₹14,999</span>
+                  <span class="price-period">/ Month</span>
+                </div>
+
+                <ul class="pricing-features-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Delivery equity chart pattern breakouts</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Capital required: ₹1,00,000 - ₹25,00,000+</li>
+                  <li><i class="fa-solid fa-circle-check"></i> 1:2.0+ High Target Expectancy</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Ideal for working professionals</li>
+                </ul>
+              </div>
+              <a href="#fast-payment" class="btn btn-primary" style="width: 100%; margin-top: 1rem;"><i class="fa-solid fa-credit-card"></i> Subscribe via HDFC</a>
+            </div>
+
+            <!-- Block 7: Bank Nifty Bonanza (Flagship Choice) -->
+            <div class="pricing-block-card featured-card reveal-on-scroll" style="grid-column: span 1;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="badge badge-gold"><i class="fa-solid fa-crown"></i> Flagship Package</span>
+                  <span style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">100+ Point Momentum</span>
+                </div>
+                <h3 style="font-size: 1.4rem; color: #FFF; margin-bottom: 0.4rem;">Bank Nifty Bonanza</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Our premier index flagship package targeting high-conviction Bank Nifty option moves.</p>
+                
+                <div class="pricing-tenure-tabs">
+                  <button class="tenure-tab-btn active" data-price="₹25,000" data-period="/ Month">Monthly</button>
+                  <button class="tenure-tab-btn" data-price="₹55,000" data-period="/ Qtr (3 Mo)">Quarterly</button>
+                  <button class="tenure-tab-btn" data-price="₹91,000" data-period="/ 6 Months">Half-Yearly</button>
+                  <button class="tenure-tab-btn" data-price="₹1,50,000" data-period="/ Year">Annual</button>
+                </div>
+
+                <div class="pricing-price-display">
+                  <span class="price-val">₹25,000</span>
+                  <span class="price-period">/ Month</span>
+                </div>
+
+                <ul class="pricing-features-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Banking heavyweight weightage analysis</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Capital required: ₹1,50,000 - ₹5,00,000+</li>
+                  <li><i class="fa-solid fa-circle-check"></i> ATM/ITM Option Buying + Futures basis</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Priority telephonic & SMS broadcast</li>
+                </ul>
+              </div>
+              <a href="#fast-payment" class="btn btn-primary" style="width: 100%; margin-top: 1rem;"><i class="fa-solid fa-crown"></i> Subscribe Flagship Choice</a>
+            </div>
+
+          </div>
+
+          <!-- Quick Comparison Table View for Traders -->
+          <div style="margin-top: 3.5rem;">
+            <h3 style="font-size: 1.3rem; color: #FFF; text-align: center; margin-bottom: 1.25rem;"><i class="fa-solid fa-table-list" style="color: var(--primary);"></i> Consolidated Tenure Rates Overview</h3>
+            <div class="pricing-table-container reveal-on-scroll">
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th>Research Service</th>
+                    <th>Monthly</th>
+                    <th>Quarterly</th>
+                    <th>Half-Yearly</th>
+                    <th>Yearly</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Stock Cash Intraday</strong></td>
+                    <td>₹7,000</td>
+                    <td>₹15,000</td>
+                    <td>₹30,000</td>
+                    <td>₹50,000</td>
+                    <td><a href="#fast-payment" class="btn btn-primary btn-sm">Subscribe</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Stock Option Intraday</strong></td>
+                    <td>₹9,000</td>
+                    <td>₹25,000</td>
+                    <td>₹40,000</td>
+                    <td>₹60,000</td>
+                    <td><a href="#fast-payment" class="btn btn-primary btn-sm">Subscribe</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Stock Future Intraday</strong></td>
+                    <td>₹9,000</td>
+                    <td>₹25,000</td>
+                    <td>₹40,000</td>
+                    <td>₹60,000</td>
+                    <td><a href="#fast-payment" class="btn btn-primary btn-sm">Subscribe</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Index Option Intraday</strong></td>
+                    <td>₹9,000</td>
+                    <td>₹25,000</td>
+                    <td>₹40,000</td>
+                    <td>₹60,000</td>
+                    <td><a href="#fast-payment" class="btn btn-primary btn-sm">Subscribe</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Commodity Intraday</strong></td>
+                    <td>₹9,000</td>
+                    <td>₹25,000</td>
+                    <td>₹40,000</td>
+                    <td>₹60,000</td>
+                    <td><a href="#fast-payment" class="btn btn-primary btn-sm">Subscribe</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Stock Cash Swing</strong></td>
+                    <td>₹14,999</td>
+                    <td>₹32,499</td>
+                    <td>₹44,999</td>
+                    <td>₹74,999</td>
+                    <td><a href="#fast-payment" class="btn btn-primary btn-sm">Subscribe</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bank Nifty Bonanza</strong></td>
+                    <td>₹25,000</td>
+                    <td>₹55,000</td>
+                    <td>₹91,000</td>
+                    <td>₹1,50,000</td>
+                    <td><a href="#fast-payment" class="btn btn-primary btn-sm">Subscribe</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -813,8 +1054,8 @@
             <div class="spec-card"><span><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Compliance Status</span><strong style="font-size: 0.95rem; color: var(--primary); display: block; margin-top: 0.3rem;">INH000013873</strong><small style="color: var(--text-muted);">Perpetual Validity (Aditya Shivhare)</small></div>
           </div>
 
-          <!-- Deep Multi-Step Consultation Lead Funnel -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+          <!-- Deep Multi-Step Consultation Lead Funnel (STACKS CLEANLY ON MOBILE) -->
+          <div class="grid-2col-responsive">
             <div class="reveal-left">
               <span class="badge badge-sebi"><i class="fa-solid fa-comments"></i> Get in Touch</span>
               <h2 style="font-size: 2rem; margin: 0.75rem 0 1rem;">Have a Question About Our Research Services?</h2>
@@ -843,7 +1084,7 @@
                   <input type="text" placeholder="e.g. Rahul Sharma" class="form-control" required>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-row-2col">
                   <div class="form-group">
                     <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Mobile Number *</label>
                     <input type="tel" placeholder="+91 98765 43210" class="form-control" required>
@@ -1003,7 +1244,7 @@
             <div style="background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-top: 2.5rem;">
               <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Request Stock Cash Research Callback</h3>
               <form class="service-lead-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div class="form-row-2col" style="margin-top: 1rem;">
                   <input type="text" placeholder="Full Name" class="form-control" required>
                   <input type="tel" placeholder="Mobile Number" class="form-control" required>
                 </div>
@@ -1089,7 +1330,7 @@
             <div style="background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-top: 2.5rem;">
               <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Request Stock Option Research Callback</h3>
               <form class="service-lead-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div class="form-row-2col" style="margin-top: 1rem;">
                   <input type="text" placeholder="Full Name" class="form-control" required>
                   <input type="tel" placeholder="Mobile Number" class="form-control" required>
                 </div>
@@ -1175,7 +1416,7 @@
             <div style="background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-top: 2.5rem;">
               <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Request Stock Future Research Callback</h3>
               <form class="service-lead-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div class="form-row-2col" style="margin-top: 1rem;">
                   <input type="text" placeholder="Full Name" class="form-control" required>
                   <input type="tel" placeholder="Mobile Number" class="form-control" required>
                 </div>
@@ -1261,7 +1502,7 @@
             <div style="background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-top: 2.5rem;">
               <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Request Index Option Research Callback</h3>
               <form class="service-lead-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div class="form-row-2col" style="margin-top: 1rem;">
                   <input type="text" placeholder="Full Name" class="form-control" required>
                   <input type="tel" placeholder="Mobile Number" class="form-control" required>
                 </div>
@@ -1347,7 +1588,7 @@
             <div style="background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-top: 2.5rem;">
               <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Request Commodity Research Callback</h3>
               <form class="service-lead-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div class="form-row-2col" style="margin-top: 1rem;">
                   <input type="text" placeholder="Full Name" class="form-control" required>
                   <input type="tel" placeholder="Mobile Number" class="form-control" required>
                 </div>
@@ -1433,7 +1674,7 @@
             <div style="background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-top: 2.5rem;">
               <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Request Stock Cash Swing Callback</h3>
               <form class="service-lead-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div class="form-row-2col" style="margin-top: 1rem;">
                   <input type="text" placeholder="Full Name" class="form-control" required>
                   <input type="tel" placeholder="Mobile Number" class="form-control" required>
                 </div>
@@ -1519,7 +1760,7 @@
             <div style="background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-top: 2.5rem;">
               <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Request Bank Nifty Flagship Callback</h3>
               <form class="service-lead-form">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div class="form-row-2col" style="margin-top: 1rem;">
                   <input type="text" placeholder="Full Name" class="form-control" required>
                   <input type="tel" placeholder="Mobile Number" class="form-control" required>
                 </div>
@@ -1562,7 +1803,7 @@
             </ul>
 
             <h2 style="color: var(--primary); margin-bottom: 1rem;">D. Do's and Don'ts for Investors</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+            <div class="grid-2col-responsive" style="margin-top: 1rem;">
               <div style="background: rgba(16, 185, 129, 0.08); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--primary);">
                 <h4 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-check"></i> DO's</h4>
                 <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">• Always verify SEBI registration status.<br>• Pay subscription fees only to official HDFC bank account (ADITYA SHIVHARE).<br>• Always maintain strict stop-loss and risk management discipline.<br>• Read all disclaimer documents before acting on research.</p>
@@ -1863,7 +2104,7 @@
         </div>
       </div>
 
-      <!-- Clean Unobscured Bottom Row with Pixel Layerss Badge on Left (No redundant URL text) -->
+      <!-- Clean Unobscured Bottom Row with Pixel Layerss Badge on Left -->
       <div style="border-top: 1px solid var(--border-color); padding-top: 1.25rem; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
           <a href="https://pixellayerss.com" target="_blank" rel="noopener" class="agency-badge-footer">
