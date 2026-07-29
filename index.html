@@ -78,6 +78,15 @@
 </head>
 <body>
 
+  <!-- PRELOADER OVERLAY WITH LOGO PULSE & 60FPS SPINNER -->
+  <div id="preloaderOverlay">
+    <div class="preloader-brand-box">
+      <img src="logo.png" alt="Trade Care Research Preloader Logo" class="preloader-logo">
+      <div class="preloader-spinner-ring"></div>
+      <span style="font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.05em; font-family: var(--font-heading);">SEBI REG. INH000013873</span>
+    </div>
+  </div>
+
   <!-- Custom Premium Cursor -->
   <div class="custom-cursor-dot"></div>
   <div class="custom-cursor-ring"></div>
@@ -147,24 +156,34 @@
   <!-- MAIN CONTENT CONTAINER (24 STANDALONE PAGE VIEWS) -->
   <main>
 
-    <!-- PAGE 1: HOME PAGE -->
+    <!-- PAGE 1: HOME PAGE (STREAMLINED & SLIDING ANIMATED) -->
     <section id="home" class="page-view active">
       <!-- Hero Section -->
       <div class="hero-section">
         <div class="hero-spotlight-layer"></div>
         <div class="container hero-grid">
-          <div class="hero-text-col">
+          <div class="hero-text-col reveal-left">
             <div class="hero-badge">
               <span class="badge badge-sebi"><i class="fa-solid fa-shield-halved"></i> SEBI Reg. INH000013873 — Perpetual</span>
               <span id="marketStatusBadge" class="badge badge-gold"><span class="status-pulse-dot"></span> Live Market Open</span>
             </div>
-            <h1 class="hero-title">Empower Your Trading with <span>Data-Driven</span> Stock Technicals</h1>
-            <p class="hero-subtitle">Trust India's premier SEBI Registered Research Analyst for precision technical signals, actionable intraday stock options, index setups, and disciplined risk-reward strategies.</p>
+            <h1 class="hero-title">Invest And Grow With <span>Trade Care Research</span></h1>
+            <p class="hero-subtitle">Trust India's premier SEBI Registered Research Analyst for precision technical signals, actionable stock options, index setups, and disciplined risk-reward strategies.</p>
             <div class="hero-ctas">
-              <a href="#pricing" class="btn btn-primary btn-lg magnetic-btn">Explore Service Packages</a>
+              <a href="#services" class="btn btn-primary btn-lg magnetic-btn">Get Started <i class="fa-solid fa-arrow-right"></i></a>
               <a href="#book-appointment" class="btn btn-secondary btn-lg">Book Advisory Consultation</a>
             </div>
-            <div class="hero-stats-row">
+
+            <!-- Original Social Media Links Bar -->
+            <div class="social-bar-hero">
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Connect With Us:</span>
+              <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <div class="hero-stats-row" style="margin-top: 1.5rem;">
               <div class="stat-item">
                 <h3>5+ <span>Years</span></h3>
                 <p>Market Research Expertise</p>
@@ -181,7 +200,7 @@
           </div>
 
           <!-- Hero Widget: Live Recommendation Call Card -->
-          <div class="hero-widget-col">
+          <div class="hero-widget-col reveal-right">
             <div class="sample-call-card">
               <div class="call-card-header">
                 <span class="call-type"><i class="fa-solid fa-bolt" style="color: var(--primary);"></i> Research Recommendation</span>
@@ -228,17 +247,48 @@
         </div>
       </div>
 
-      <!-- Services Overview Grid -->
-      <div class="section-padding">
+      <!-- WHY CHOOSE US SECTION (SLIDING REVEAL) -->
+      <div class="section-padding reveal-on-scroll">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge badge-gold"><i class="fa-solid fa-shield-halved"></i> Why Choose Us?</span>
+            <h2>Trustworthy & Expert Technical Research Analyst</h2>
+            <p>Backed by SEBI registration INH000013873 and a proven track record of helping traders navigate market volatility with confidence.</p>
+          </div>
+
+          <div class="why-choose-grid">
+            <div class="why-choose-card reveal-left">
+              <div class="service-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: var(--primary);"><i class="fa-solid fa-arrow-trend-up"></i></div>
+              <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;">Growth Stock Research Analyst</h3>
+              <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">Trade Care Research stock analysts empower investors to make informed decisions and achieve long-term financial success through technical momentum breakouts.</p>
+            </div>
+
+            <div class="why-choose-card reveal-on-scroll">
+              <div class="service-icon-wrap" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-gold);"><i class="fa-solid fa-microscope"></i></div>
+              <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;">NISM Certified Technical Indicators</h3>
+              <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">Every recommendation is generated using Volume-Weighted Average Price (VWAP), Implied Volatility (IV) expansion, and 5-minute price action confirmations.</p>
+            </div>
+
+            <div class="why-choose-card reveal-right">
+              <div class="service-icon-wrap" style="background: rgba(59, 130, 246, 0.15); color: var(--accent-blue);"><i class="fa-solid fa-scale-balanced"></i></div>
+              <h3 style="font-size: 1.2rem; color: #FFF; margin-bottom: 0.5rem;">Disciplined 1:1.5+ Risk Reward</h3>
+              <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">Strict capital protection with pre-defined stop losses and clear target levels delivered via real-time SMS & WhatsApp alerts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services Overview Grid (SLIDING REVEAL) -->
+      <div class="section-padding reveal-on-scroll">
         <div class="container">
           <div class="section-header">
             <span class="badge badge-sebi">Research Offerings</span>
-            2 Our Specialized Research Products
+            <h2>Our Specialized Research Products</h2>
             <p>Designed for intraday scalpers, option strategists, futures traders, and positional swing investors.</p>
           </div>
 
           <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card reveal-left">
               <div class="service-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
               <h3>Stock Cash Intraday</h3>
               <p>Designed for intraday cash market traders seeking high-liquidity stock momentum recommendations with precise stop-loss and targets.</p>
@@ -249,7 +299,7 @@
               </div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll">
               <div class="service-icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
               <h3>Stock Option Intraday</h3>
               <p>High-reward intraday equity options research focusing on strike selection, volatility breakouts, and fast execution.</p>
@@ -260,7 +310,7 @@
               </div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card reveal-right">
               <div class="service-icon-wrap"><i class="fa-solid fa-arrow-trend-up"></i></div>
               <h3>Stock Future Intraday</h3>
               <p>Leveraged single-stock derivative contracts with volume analysis, VWAP confirmations, and disciplined risk parameters.</p>
@@ -271,7 +321,7 @@
               </div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card reveal-left">
               <div class="service-icon-wrap"><i class="fa-solid fa-chart-pie"></i></div>
               <h3>Index Option Intraday</h3>
               <p>Nifty and Bank Nifty option buying strategies tailored for fast-moving index trends, momentum bursts, and low decay holding.</p>
@@ -282,7 +332,7 @@
               </div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll">
               <div class="service-icon-wrap"><i class="fa-solid fa-cubes"></i></div>
               <h3>Commodity Intraday</h3>
               <p>Comprehensive MCX commodity recommendations covering Gold, Silver, Crude Oil, and Natural Gas for active commodity traders.</p>
@@ -293,7 +343,7 @@
               </div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card reveal-right">
               <div class="service-icon-wrap"><i class="fa-solid fa-chart-area"></i></div>
               <h3>Stock Cash Swing</h3>
               <p>Short-to-medium term delivery swing picks (few days to weeks) without margin risk, focusing on technical pattern breakouts.</p>
@@ -304,7 +354,7 @@
               </div>
             </div>
 
-            <div class="service-card" style="border: 2px solid var(--primary);">
+            <div class="service-card reveal-on-scroll" style="border: 2px solid var(--primary);">
               <div class="service-icon-wrap" style="background: var(--accent-gold-light); color: var(--accent-gold);"><i class="fa-solid fa-crown"></i></div>
               <h3>Bank Nifty Bonanza</h3>
               <p>Our flagship index package delivering 100+ point momentum moves with tight stop-loss management on NSE Bank Nifty derivatives.</p>
@@ -331,7 +381,7 @@
       <div class="section-padding">
         <div class="container">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-            <div>
+            <div class="reveal-left">
               <span class="badge badge-sebi"><i class="fa-solid fa-award"></i> Principal Analyst Profile</span>
               <h2 style="font-size: 2.2rem; margin: 0.75rem 0 1.25rem;">Aditya Shivhare — SEBI Registered Research Analyst</h2>
               <p style="color: var(--text-muted); margin-bottom: 1.25rem;">Trade Care Research was founded by <strong>Aditya Shivhare (SEBI Reg. No. INH000013873)</strong> with a singular mission: to provide Indian equity and derivative traders with institutional-grade technical analysis and disciplined risk management.</p>
@@ -345,7 +395,7 @@
             </div>
 
             <!-- Conversion Funnel Form on About Us -->
-            <div style="background: var(--bg-card); padding: 2.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-md);">
+            <div class="reveal-right" style="background: var(--bg-card); padding: 2.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-md);">
               <h3 style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-headset" style="color: var(--primary);"></i> Consult with Analyst Desk</h3>
               <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">Request a 1-on-1 strategy consultation to discuss your capital allocation and research goals.</p>
               <form class="about-funnel-form">
@@ -380,37 +430,37 @@
       <div class="section-padding">
         <div class="container">
           <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll">
               <h3>Stock Cash Intraday</h3>
               <p>Real-time technical breakout calls in liquid cash segment stocks. High accuracy intraday momentum setups.</p>
               <a href="#stock-cash-intraday" class="btn btn-secondary btn-sm">Explore Strategy <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll">
               <h3>Stock Option Intraday</h3>
               <p>Curated single-stock option buying calls with strict stop-losses, target levels, and fast execution alerts.</p>
               <a href="#stock-option-intraday" class="btn btn-secondary btn-sm">Explore Strategy <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll">
               <h3>Stock Future Intraday</h3>
               <p>Intraday derivative setups backed by volume surges, open interest analysis, and price confirmation.</p>
               <a href="#stock-future-intraday" class="btn btn-secondary btn-sm">Explore Strategy <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll">
               <h3>Index Option Intraday</h3>
               <p>Nifty 50 and Bank Nifty option trades designed for fast intraday momentum movements with clear risk controls.</p>
               <a href="#index-option-intraday" class="btn btn-secondary btn-sm">Explore Strategy <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll">
               <h3>Commodity Intraday</h3>
               <p>Technical recommendations across MCX Energy (Crude, Nat Gas) and Bullion (Gold, Silver) contracts.</p>
               <a href="#commodity-intraday" class="btn btn-secondary btn-sm">Explore Strategy <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll">
               <h3>Stock Cash Swing</h3>
               <p>Short-to-medium term holding positions (few days to weeks) capturing price pattern breakouts in delivery stocks.</p>
               <a href="#stock-cash-swing" class="btn btn-secondary btn-sm">Explore Strategy <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            <div class="service-card" style="border: 2px solid var(--primary);">
+            <div class="service-card reveal-on-scroll" style="border: 2px solid var(--primary);">
               <h3>Bank Nifty Bonanza</h3>
               <p>Our premier index option service targeting 100+ point momentum moves with NISM certified technical precision.</p>
               <a href="#bank-nifty" class="btn btn-primary btn-sm">Explore Flagship</a>
@@ -432,7 +482,7 @@
       <div class="section-padding">
         <div class="container">
           <div class="cluster-grid">
-            <div class="ai-definition-card">
+            <div class="ai-definition-card reveal-left">
               <span class="badge badge-sebi" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-chart-line"></i> Cluster 01</span>
               <h3 style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 0.75rem;">Technical Analysis & Options</h3>
               <dl class="ai-def-list">
@@ -445,7 +495,7 @@
               </dl>
             </div>
 
-            <div class="ai-definition-card">
+            <div class="ai-definition-card reveal-on-scroll">
               <span class="badge badge-gold" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-shield-halved"></i> Cluster 02</span>
               <h3 style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 0.75rem;">Position Sizing & Risk Rules</h3>
               <dl class="ai-def-list">
@@ -458,7 +508,7 @@
               </dl>
             </div>
 
-            <div class="ai-definition-card">
+            <div class="ai-definition-card reveal-right">
               <span class="badge badge-sebi" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-scale-balanced"></i> Cluster 03</span>
               <h3 style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 0.75rem;">SEBI Regulations & Compliance</h3>
               <dl class="ai-def-list">
@@ -486,7 +536,7 @@
 
       <div class="section-padding">
         <div class="container">
-          <div class="dashboard-card">
+          <div class="dashboard-card reveal-on-scroll">
             <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye" style="color: var(--primary);"></i> Select Your Primary Focus Today</h4>
             <div class="onboarding-grid">
               <div class="onboarding-card" data-goal="options">
@@ -523,7 +573,7 @@
 
       <div class="section-padding">
         <div class="container">
-          <div class="pricing-table-container">
+          <div class="pricing-table-container reveal-on-scroll">
             <table class="pricing-table">
               <thead>
                 <tr>
@@ -614,7 +664,7 @@
             <strong>SEBI COMPLIANCE WARNING:</strong> Always verify that fee payments are made strictly to the official bank account registered under <strong>ADITYA SHIVHARE (HDFC Bank)</strong>.
           </div>
 
-          <div style="background: var(--bg-card); border-radius: var(--radius-lg); padding: 2.5rem; border: 1px solid var(--border-color);">
+          <div class="reveal-on-scroll" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: 2.5rem; border: 1px solid var(--border-color);">
             <h2 style="margin-bottom: 1.5rem;"><i class="fa-solid fa-building-columns" style="color: var(--primary);"></i> Official Bank Credentials</h2>
             <div style="display: flex; flex-direction: column; gap: 1.25rem;">
               <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
@@ -646,7 +696,7 @@
 
       <div class="section-padding">
         <div class="container">
-          <div class="complaints-wrapper">
+          <div class="complaints-wrapper reveal-on-scroll">
             <h3>Trend of Monthly Disposal Complaints</h3>
             <table class="data-table" style="width: 100%; margin-top: 1rem;">
               <thead>
@@ -679,7 +729,7 @@
         <div class="container">
 
           <!-- Contact Channels Info Grid -->
-          <div class="spec-grid" style="margin-bottom: 3rem;">
+          <div class="spec-grid reveal-on-scroll" style="margin-bottom: 3rem;">
             <div class="spec-card">
               <span><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Helpline Phone</span>
               <strong style="font-size: 1.1rem; color: #FFF; display: block; margin-top: 0.3rem;">+91 8839367516</strong>
@@ -700,7 +750,7 @@
 
           <!-- Deep Multi-Step Consultation Lead Funnel -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-            <div>
+            <div class="reveal-left">
               <span class="badge badge-sebi"><i class="fa-solid fa-comments"></i> Get in Touch</span>
               <h2 style="font-size: 2rem; margin: 0.75rem 0 1rem;">Have a Question About Our Research Services?</h2>
               <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.7;">Whether you are an active index option scalper, stock options trader, or delivery swing investor, our advisory team is ready to evaluate your capital allocation and recommend the ideal strategy tenure for your goals.</p>
@@ -718,7 +768,7 @@
             </div>
 
             <!-- Enhanced Contact & Advisory Funnel Form -->
-            <div style="background: var(--bg-card); padding: 2.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
+            <div class="reveal-right" style="background: var(--bg-card); padding: 2.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
               <h3 style="font-size: 1.3rem; color: #FFFFFF; margin-bottom: 0.5rem;"><i class="fa-solid fa-paper-plane" style="color: var(--primary);"></i> Send Direct Advisory Inquiry</h3>
               <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Fill out the details below for a priority callback from our NISM certified research desk.</p>
 
@@ -780,7 +830,7 @@
       <div class="inner-banner"><div class="container"><h1>Book Advisory Consultation</h1><p>Schedule a callback with our SEBI research desk to discuss your capital allocation and service selection.</p></div></div>
       <div class="section-padding">
         <div class="container" style="max-width: 600px;">
-          <div style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <div class="reveal-on-scroll" style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
             <h3>Schedule Callback</h3>
             <form id="appointmentForm" style="margin-top: 1rem;">
               <div class="form-group"><input type="text" placeholder="Your Full Name" class="form-control" required></div>

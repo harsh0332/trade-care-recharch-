@@ -1,6 +1,6 @@
 /* ==========================================================================
    TRADE CARE RESEARCH - HIGH-PERFORMANCE MASTER CLIENT ENGINE (60 FPS)
-   Throttled Scroll Observer, Smart AI RAG Knowledge Engine, 24-Page Routing & Mobile Nav Suite
+   Preloader Overlay, Scroll Reveal Section Animations, Smart AI RAG Engine & 24-Page Routing
    ========================================================================== */
 
 class RagKnowledgeEngine {
@@ -129,10 +129,12 @@ const analytics = new AnalyticsManager();
 const ragEngine = new RagKnowledgeEngine();
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPreloader();
   initRouting();
   initMarketTickerDecluttered();
   initTradingClock();
   initThrottledScrollObservers();
+  initScrollRevealEngine();
   initAiPersonalizedDashboard();
   initLiveSearchEngine();
   initModals();
@@ -144,6 +146,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
   analytics.trackEvent('page_view', { path: window.location.hash || '#home' });
 });
+
+/* --------------------------------------------------------------------------
+   0. PRELOADER OVERLAY ENGINE (60 FPS BRANDING PULSE)
+   -------------------------------------------------------------------------- */
+function initPreloader() {
+  const preloader = document.getElementById('preloaderOverlay');
+  if (!preloader) return;
+
+  function hidePreloader() {
+    preloader.classList.add('hide');
+    setTimeout(() => preloader.remove(), 650);
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(hidePreloader, 600);
+  } else {
+    window.addEventListener('load', () => setTimeout(hidePreloader, 600));
+    setTimeout(hidePreloader, 2500); // Safety fallback
+  }
+}
+
+/* --------------------------------------------------------------------------
+   00. SMOOTH SCROLL-TRIGGERED SECTION SLIDING ANIMATION ENGINE
+   -------------------------------------------------------------------------- */
+function initScrollRevealEngine() {
+  const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right');
+  if (!revealElements.length || !('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('reveal-active'));
+    return;
+  }
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  revealElements.forEach(el => revealObserver.observe(el));
+}
 
 /* --------------------------------------------------------------------------
    1. ROUTING ENGINE FOR ALL 24 PAGE VIEWS
@@ -204,6 +253,9 @@ function initRouting() {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
     analytics.trackEvent('navigation_changed', { view: cleanId });
+
+    // Trigger scroll reveal for newly activated view
+    setTimeout(initScrollRevealEngine, 100);
   }
 
   window.addEventListener('hashchange', () => navigateTo(window.location.hash));

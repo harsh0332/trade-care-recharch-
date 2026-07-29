@@ -1,6 +1,6 @@
 /* ==========================================================================
    TRADE CARE RESEARCH - 60 FPS ULTRA-PERFORMANCE MASTER CSS
-   Stripe / Linear / Vercel Benchmark (100% Mobile & Floating Widget Suite)
+   Stripe / Linear / Vercel Benchmark (Preloader & Scroll Reveal Engine)
    ========================================================================== */
 
 :root {
@@ -55,6 +55,88 @@
 html { scroll-behavior: smooth; font-size: 16px; background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; }
 body { font-family: var(--font-body); background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; position: relative; width: 100%; }
 
+/* --------------------------------------------------------------------------
+   PRELOADER ANIMATION OVERLAY (60 FPS LUXURY BRANDING)
+   -------------------------------------------------------------------------- */
+#preloaderOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #070A10;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out);
+}
+#preloaderOverlay.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-brand-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+.preloader-logo {
+  height: 60px;
+  width: auto;
+  animation: logoPulseGlow 1.8s ease-in-out infinite alternate;
+}
+@keyframes logoPulseGlow {
+  0% { transform: scale(0.96); filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.2)); }
+  100% { transform: scale(1.04); filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.6)); }
+}
+
+.preloader-spinner-ring {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(16, 185, 129, 0.15);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: preloaderSpin 0.9s linear infinite;
+}
+@keyframes preloaderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   SMOOTH SCROLL-TRIGGERED SECTION SLIDING ANIMATIONS (60 FPS REVEAL)
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
 /* Custom Cursor (Desktop Only) */
 @media (hover: hover) and (pointer: fine) {
   body { cursor: none; }
@@ -79,9 +161,7 @@ a:hover { color: #34D399; }
 .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.25rem; position: relative; z-index: 1; }
 .section-padding { padding: 4.5rem 0 5.5rem; }
 
-/* --------------------------------------------------------------------------
-   TOP SEBI MARQUEE TICKER STRIP
-   -------------------------------------------------------------------------- */
+/* Top Marquee Bar */
 .sebi-top-marquee {
   background: #04070D;
   color: var(--text-muted);
@@ -102,9 +182,7 @@ a:hover { color: #34D399; }
   100% { transform: translateX(-50%); }
 }
 
-/* --------------------------------------------------------------------------
-   CONTINUOUS AUTO-SCROLLING LIVE MARKET TICKER STRIP (DYNAMIC COLORED)
-   -------------------------------------------------------------------------- */
+/* Continuous Auto-Scrolling Live Market Ticker */
 .market-ticker-strip {
   background-color: #070A10;
   color: #94A3B8;
@@ -159,9 +237,7 @@ a:hover { color: #34D399; }
   100% { opacity: 1; transform: scale(1.2); }
 }
 
-/* --------------------------------------------------------------------------
-   HEADER & NAVIGATION BAR
-   -------------------------------------------------------------------------- */
+/* Header & Navbar */
 .header {
   position: sticky;
   top: 0;
@@ -281,6 +357,11 @@ a:hover { color: #34D399; }
 .hero-title span { color: var(--primary); background: linear-gradient(135deg, #10B981 0%, #34D399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2rem; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+.social-bar-hero { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
+.social-icon-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--primary); display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 150ms ease-out; }
+.social-icon-btn:hover { background: rgba(16,185,129,0.15); border-color: var(--primary); transform: translateY(-2px); }
+
 .hero-stats-row { display: flex; gap: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); flex-wrap: wrap; }
 .stat-item h3 { font-size: 1.5rem; color: #FFFFFF; }
 .stat-item h3 span { font-size: 0.85rem; color: var(--primary); }
@@ -294,6 +375,11 @@ a:hover { color: #34D399; }
 .call-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 1.25rem 0; text-align: center; }
 .meta-box { background: rgba(30, 41, 59, 0.6); padding: 0.6rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
 .meta-box span { font-size: 0.75rem; color: var(--text-muted); display: block; }
+
+/* Why Choose Us Feature Cards (Original Design Match) */
+.why-choose-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.why-choose-card { background: rgba(17, 24, 39, 0.85); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; transition: all 150ms ease-out; }
+.why-choose-card:hover { border-color: var(--primary); transform: translateY(-3px); background: rgba(30, 41, 59, 0.6); }
 
 /* Workspace & Knowledge Hub */
 .section-header { text-align: center; max-width: 680px; margin: 0 auto 2.5rem; }
@@ -397,7 +483,8 @@ a:hover { color: #34D399; }
 .msg-user { align-self: flex-end; background: var(--primary-gradient); color: #FFFFFF; border-bottom-right-radius: 4px; }
 .msg-bot { align-self: flex-start; background: rgba(30, 41, 59, 0.8); color: var(--text-main); border: 1px solid var(--border-color); border-bottom-left-radius: 4px; }
 
-.prompt-chips-wrap { display: flex; gap: 0.4rem; overflow-x: auto; padding-bottom: 0.4rem; }
+.prompt-chips-wrap { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.prompt-chips-wrap::-webkit-scrollbar { display: none; }
 .prompt-chip { background: rgba(16, 185, 129, 0.12); color: var(--primary); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.35rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; white-space: nowrap; cursor: pointer; min-height: 36px; }
 
 .floating-widget { position: fixed; bottom: 2rem; right: 2rem; z-index: 1050; display: flex; flex-direction: column; gap: 0.75rem; }
@@ -557,7 +644,8 @@ a:hover { color: #34D399; }
   /* Single Column Layouts on Mobile */
   .pricing-tenure-grid, 
   .spec-grid, 
-  .cluster-grid { 
+  .cluster-grid,
+  .why-choose-grid { 
     grid-template-columns: 1fr; 
   }
 }
