@@ -1,6 +1,6 @@
 /* ==========================================================================
    TRADE CARE RESEARCH - 60 FPS ULTRA-PERFORMANCE MASTER CSS
-   Stripe / Linear / Vercel Benchmark (Preloader & Scroll Reveal Engine)
+   Stripe / Linear / Vercel Benchmark (Compact Mobile Footer & Clean Funnel)
    ========================================================================== */
 
 :root {
@@ -137,10 +137,19 @@ body { font-family: var(--font-body); background-color: var(--bg-dark); color: v
   transform: translate(0, 0) !important;
 }
 
-/* Custom Cursor (Desktop Only) */
+/* Custom Cursor (DESKTOP ONLY — HIDDEN ON MOBILE TOUCH DEVICES) */
 @media (hover: hover) and (pointer: fine) {
   body { cursor: none; }
   a, button, input, select, textarea, .btn, .nav-search-trigger { cursor: none !important; }
+}
+
+@media (max-width: 768px), (pointer: coarse), (hover: none) {
+  .custom-cursor-dot, .custom-cursor-ring {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
 }
 
 .custom-cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background-color: var(--primary); border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); transition: transform 100ms var(--ease-out); will-change: transform; }
@@ -602,7 +611,7 @@ a:hover { color: #34D399; }
 
   .header-actions .btn-primary { display: none; }
 
-  .hero-section { padding: 2.5rem 0 3.5rem; }
+  .hero-section { padding: 2rem 0 2.5rem; }
   .hero-title { font-size: 2.1rem; }
   .hero-subtitle { font-size: 0.95rem; }
   .hero-ctas { flex-direction: column; width: 100%; }
@@ -611,7 +620,21 @@ a:hover { color: #34D399; }
 
   .pricing-table-container::after { display: block; }
 
-  .footer-enterprise-grid { grid-template-columns: 1fr; gap: 2rem; }
+  /* COMPACT MOBILE 2-COLUMN SIDE-BY-SIDE FOOTER */
+  .footer-enterprise { padding: 2.25rem 0 1.75rem; margin-top: 2.5rem; }
+  .footer-enterprise-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 1rem;
+  }
+  .footer-enterprise-grid > div:first-child {
+    grid-column: span 2;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0.25rem;
+  }
+  .footer-title { font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .footer-links { gap: 0.35rem; }
+  .footer-links a { font-size: 0.775rem; min-height: 28px; }
 
   /* Floating Control Position Fixes on Mobile */
   .ai-assistant-trigger {

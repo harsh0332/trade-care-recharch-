@@ -87,7 +87,7 @@
     </div>
   </div>
 
-  <!-- Custom Premium Cursor -->
+  <!-- Custom Premium Cursor (Desktop Only) -->
   <div class="custom-cursor-dot"></div>
   <div class="custom-cursor-ring"></div>
 
@@ -156,9 +156,10 @@
   <!-- MAIN CONTENT CONTAINER (24 STANDALONE PAGE VIEWS) -->
   <main>
 
-    <!-- PAGE 1: HOME PAGE (STREAMLINED & SLIDING ANIMATED) -->
+    <!-- PAGE 1: HOME PAGE (STREAMLINED PERFECT CONVERSION FUNNEL) -->
     <section id="home" class="page-view active">
-      <!-- Hero Section -->
+      
+      <!-- FUNNEL STEP 1: HERO ATTENTION HOOK -->
       <div class="hero-section">
         <div class="hero-spotlight-layer"></div>
         <div class="container hero-grid">
@@ -233,7 +234,7 @@
         </div>
       </div>
 
-      <!-- CONTINUOUS AUTO-SCROLLING LIVE MARKET TICKER STRIP -->
+      <!-- FUNNEL STEP 2: CONTINUOUS AUTO-SCROLLING LIVE MARKET TICKER STRIP -->
       <div class="market-ticker-strip">
         <div class="container" style="overflow: hidden;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; font-size: 0.775rem; color: var(--text-muted);">
@@ -247,7 +248,7 @@
         </div>
       </div>
 
-      <!-- WHY CHOOSE US SECTION (SLIDING REVEAL) -->
+      <!-- FUNNEL STEP 3: WHY CHOOSE US (KEY DIFFERENTIATORS) -->
       <div class="section-padding reveal-on-scroll">
         <div class="container">
           <div class="section-header">
@@ -278,7 +279,7 @@
         </div>
       </div>
 
-      <!-- Services Overview Grid (SLIDING REVEAL) -->
+      <!-- FUNNEL STEP 4: RESEARCH PRODUCTS MATRIX -->
       <div class="section-padding reveal-on-scroll">
         <div class="container">
           <div class="section-header">
@@ -363,6 +364,70 @@
                 <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="fa-solid fa-bullseye"></i> Premium ATM/ITM Calls</span>
                 <a href="#bank-nifty" class="btn btn-primary btn-sm">Explore Flagship</a>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FUNNEL STEP 5: INTERACTIVE POSITION SIZE & RISK CALCULATOR -->
+      <div class="section-padding reveal-on-scroll" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container" style="max-width: 900px;">
+          <div class="section-header" style="margin-bottom: 1.5rem;">
+            <span class="badge badge-gold"><i class="fa-solid fa-calculator"></i> Trader Tool</span>
+            <h2>Position Sizing & Risk Calculator</h2>
+            <p>Calculate your maximum recommended position sizing and 1:1.5+ target levels before taking trades.</p>
+          </div>
+
+          <div style="background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+              <div><label style="font-size: 0.8rem; color: var(--text-muted);">Trading Capital (₹)</label><input type="number" id="calcCapitalCash" value="100000" class="form-control"></div>
+              <div><label style="font-size: 0.8rem; color: var(--text-muted);">Max Risk Per Trade (%)</label><input type="number" id="calcRiskCash" value="2" class="form-control"></div>
+              <div><label style="font-size: 0.8rem; color: var(--text-muted);">Entry Price (₹)</label><input type="number" id="calcEntryCash" value="500" class="form-control"></div>
+              <div><label style="font-size: 0.8rem; color: var(--text-muted);">Stop Loss Price (₹)</label><input type="number" id="calcSlCash" value="490" class="form-control"></div>
+            </div>
+            <button onclick="calculateCashPosition()" class="btn btn-primary" style="margin-top: 1.25rem; width: 100%;"><i class="fa-solid fa-calculator"></i> Calculate Position Size & Target Levels</button>
+            <div id="calcCashResult" style="margin-top: 1.25rem; font-weight: 700; color: var(--primary);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FUNNEL STEP 6: DIRECT ANALYST ADVISORY CONSULTATION (PRIMARY CONVERSION GOAL) -->
+      <div class="section-padding reveal-on-scroll">
+        <div class="container" style="max-width: 800px;">
+          <div style="background: var(--bg-card); padding: 2.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
+            <div class="section-header" style="margin-bottom: 1.5rem; text-align: left;">
+              <span class="badge badge-sebi"><i class="fa-solid fa-headset"></i> Advisory Desk</span>
+              <h2 style="font-size: 1.8rem; color: #FFF; margin-top: 0.4rem;">Schedule 1-on-1 Analyst Consultation</h2>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">Speak directly with Aditya Shivhare (SEBI Reg. INH000013873) desk to evaluate your trading capital allocation.</p>
+            </div>
+
+            <form id="homeConsultationForm">
+              <div class="form-group">
+                <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Full Name *</label>
+                <input type="text" placeholder="Enter your full name" class="form-control" required>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Mobile Number *</label>
+                  <input type="tel" placeholder="+91 98765 43210" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Research Focus *</label>
+                  <select class="form-control" required>
+                    <option value="">Select Focus...</option>
+                    <option value="bank-nifty">Bank Nifty Bonanza</option>
+                    <option value="stock-option">Stock Option Intraday</option>
+                    <option value="stock-cash">Stock Cash Intraday</option>
+                    <option value="commodity">MCX Commodity</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;"><i class="fa-solid fa-calendar-check"></i> Book Consultation Call</button>
+            </form>
+
+            <div style="margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+              <span style="font-size: 0.825rem; color: var(--text-muted);">Prefer instant response? </span>
+              <a href="https://wa.me/+918839367516" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 700;"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (+91 8839367516)</a>
             </div>
           </div>
         </div>
@@ -1734,13 +1799,13 @@
     <button class="scroll-top-btn" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
   </div>
 
-  <!-- UPGRADED ENTERPRISE 5-COLUMN FOOTER WITH UNCORNERED PIXEL LAYERS AGENCY BRANDING -->
+  <!-- UPGRADED ENTERPRISE 5-COLUMN FOOTER (COMPACT 2-COLUMN SIDE-BY-SIDE ON MOBILE) -->
   <footer class="footer-enterprise">
     <div class="container">
       <div class="footer-enterprise-grid">
         <div>
-          <a href="#home"><img src="logo.png" alt="Trade Care Research Logo" style="height: 46px; margin-bottom: 1rem;"></a>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">India's premier SEBI Registered Research Analyst Firm (INH000013873).</p>
+          <a href="#home"><img src="logo.png" alt="Trade Care Research Logo" style="height: 40px; margin-bottom: 0.75rem;"></a>
+          <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">India's premier SEBI Registered Research Analyst Firm (INH000013873).</p>
           <span class="badge badge-sebi">SEBI Reg. INH000013873</span>
         </div>
 
@@ -1788,23 +1853,23 @@
 
         <div>
           <h4 class="footer-title">Contact Information</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+          <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
             <strong>Aditya Shivhare</strong><br>
             Reg. No: INH000013873<br>
             Phone: +91 8839367516<br>
             Email: info@tradecareresearch.com<br>
-            Address: House No. 175 Goya Colony, Berasiya Road Karond, Bhopal M.P - 462038
+            Address: House No. 175 Goya Colony, Bhopal M.P
           </p>
         </div>
       </div>
 
-      <!-- Clean Unobscured Bottom Row with Pixel Layerss Badge on Left -->
-      <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+      <!-- Clean Unobscured Bottom Row with Pixel Layerss Badge on Left (No redundant URL text) -->
+      <div style="border-top: 1px solid var(--border-color); padding-top: 1.25rem; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
           <a href="https://pixellayerss.com" target="_blank" rel="noopener" class="agency-badge-footer">
-            <i class="fa-solid fa-layer-group"></i> Designed & Developed by Pixel Layerss (pixellayerss.com)
+            <i class="fa-solid fa-layer-group"></i> Designed & Developed by Pixel Layerss
           </a>
-          <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 600px;">© Copyright 2026 Trade Care Research | SEBI Registration No. INH000013873 (Aditya Shivhare).</p>
+          <p style="font-size: 0.775rem; color: var(--text-muted); max-width: 600px;">© Copyright 2026 Trade Care Research | SEBI Registration No. INH000013873 (Aditya Shivhare).</p>
         </div>
       </div>
     </div>
