@@ -313,23 +313,24 @@
               <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">Our platform offers transparent and verifiable technical research tracksheets. Download our audited monthly reports detailing past recommendation accuracy, target levels, and risk-reward ratios.</p>
 
               <div class="tracksheet-buttons-grid">
-                <a href="#services" onclick="alert('Downloading Bank Nifty Bonanza Monthly Tracksheet (PDF)...')" class="btn-tracksheet-download">
+                <button onclick="openTracksheetModal('bank-nifty')" class="btn-tracksheet-download">
                   <span><i class="fa-solid fa-file-pdf" style="color: #EF4444; margin-right: 0.5rem;"></i> Bank Nifty Tracksheet</span>
-                  <i class="fa-solid fa-download"></i>
-                </a>
-                <a href="#services" onclick="alert('Downloading Stock Option Intraday Tracksheet (PDF)...')" class="btn-tracksheet-download">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button onclick="openTracksheetModal('stock-option')" class="btn-tracksheet-download">
                   <span><i class="fa-solid fa-file-pdf" style="color: var(--accent-gold); margin-right: 0.5rem;"></i> Stock Option Tracksheet</span>
-                  <i class="fa-solid fa-download"></i>
-                </a>
-                <a href="#services" onclick="alert('Downloading Stock Cash Intraday Tracksheet (PDF)...')" class="btn-tracksheet-download">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button onclick="openTracksheetModal('stock-cash')" class="btn-tracksheet-download">
                   <span><i class="fa-solid fa-file-pdf" style="color: var(--primary); margin-right: 0.5rem;"></i> Stock Cash Tracksheet</span>
-                  <i class="fa-solid fa-download"></i>
-                </a>
-                <a href="#services" onclick="alert('Downloading Commodity Intraday Tracksheet (PDF)...')" class="btn-tracksheet-download">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button onclick="openTracksheetModal('commodity')" class="btn-tracksheet-download">
                   <span><i class="fa-solid fa-file-pdf" style="color: var(--accent-blue); margin-right: 0.5rem;"></i> MCX Commodity Sheet</span>
-                  <i class="fa-solid fa-download"></i>
-                </a>
+                  <i class="fa-solid fa-eye"></i>
+                </button>
               </div>
+
 
               <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 0.75rem; background: rgba(16, 185, 129, 0.08); padding: 0.85rem 1.15rem; border-radius: var(--radius-md); border: 1px solid var(--primary);">
                 <i class="fa-solid fa-shield-check" style="color: var(--primary); font-size: 1.2rem;"></i>
@@ -2244,6 +2245,18 @@
       <input type="text" id="globalSearchInput" placeholder="Type services, FAQs, or SEBI details..." class="form-control">
     </div>
   </div>
+
+  <!-- AUDITED TRACKSHEET VIEWER MODAL -->
+  <div id="tracksheetViewerModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 750px; width: 90%;">
+      <button class="modal-close">&times;</button>
+      <h3 id="tracksheetModalTitle" style="font-size: 1.2rem; color: #FFF; margin-bottom: 1rem;"><i class="fa-solid fa-file-pdf" style="color: var(--primary);"></i> Audited Performance Tracksheet</h3>
+      <div id="tracksheetModalBody">
+        <!-- Populated dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
 
   <!-- FLOATING AI ASSISTANT -->
   <div id="aiAssistantTrigger" class="ai-assistant-trigger">
