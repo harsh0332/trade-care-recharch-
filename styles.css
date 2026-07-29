@@ -1,6 +1,6 @@
 /* ==========================================================================
    TRADE CARE RESEARCH - 60 FPS ULTRA-PERFORMANCE MASTER CSS
-   Stripe / Linear / Vercel Benchmark (100% Mobile Optimized Suite)
+   Stripe / Linear / Vercel Benchmark (100% Mobile & Floating Widget Suite)
    ========================================================================== */
 
 :root {
@@ -382,7 +382,7 @@ a:hover { color: #34D399; }
 .form-control { width: 100%; min-height: 46px; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: #FFFFFF; font-size: 0.9rem; font-family: var(--font-body); transition: all 150ms ease-out; }
 .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); background: rgba(255, 255, 255, 0.07); }
 
-/* AI Assistant & Floating Controls (Clean Mobile Spacing) */
+/* AI Assistant & Floating Controls (Clean Mobile Spacing & Zero Overlap) */
 .ai-assistant-trigger { position: fixed; bottom: 2rem; right: 6.5rem; background: var(--primary-gradient); color: #FFFFFF; padding: 0.75rem 1.25rem; border-radius: var(--radius-full); display: flex; align-items: center; gap: 0.65rem; font-weight: 700; font-size: 0.85rem; box-shadow: var(--shadow-lg), box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); z-index: 1060; border: 1px solid rgba(255, 255, 255, 0.2); cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 300ms var(--ease-out); will-change: transform, opacity; }
 .ai-assistant-trigger.active { opacity: 1; visibility: visible; transform: translateY(0); }
 
@@ -418,12 +418,31 @@ a:hover { color: #34D399; }
 .badge-gold { background-color: var(--accent-gold-light); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.3); }
 
 /* Enterprise 5-Column Footer Grid */
-.footer-enterprise { background-color: #070A10; color: #94A3B8; padding: 4.5rem 0 2.5rem; margin-top: 4.5rem; border-top: 1px solid var(--border-color); }
+.footer-enterprise { background-color: #070A10; color: #94A3B8; padding: 4.5rem 0 3.5rem; margin-top: 4.5rem; border-top: 1px solid var(--border-color); position: relative; }
 .footer-enterprise-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr; gap: 2rem; }
 .footer-title { color: #FFFFFF; font-size: 0.95rem; margin-bottom: 1.15rem; font-family: var(--font-heading); letter-spacing: -0.01em; }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin: 0; padding: 0; }
 .footer-links a { color: var(--text-muted); font-size: 0.85rem; transition: color 150ms ease-out; min-height: 32px; display: inline-flex; align-items: center; }
 .footer-links a:hover { color: var(--primary); }
+
+.agency-badge-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: all 150ms ease-out;
+}
+.agency-badge-footer:hover {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
 
 /* ==========================================================================
    100% FLAWLESS MOBILE RESPONSIVE SUITE (TABLETS, PHONES, COMPACT SCREENS)
@@ -494,7 +513,7 @@ a:hover { color: #34D399; }
     cursor: pointer;
   }
 
-  .header-actions .btn-primary { display: none; } /* Hide heavy CTA in header on mobile to fit search & hamburger */
+  .header-actions .btn-primary { display: none; }
 
   .hero-section { padding: 2.5rem 0 3.5rem; }
   .hero-title { font-size: 2.1rem; }
