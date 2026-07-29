@@ -11,7 +11,7 @@ class RagKnowledgeEngine {
         source: 'SEBI Compliance & Registration Desk',
         link: '#disclaimer',
         keywords: ['sebi', 'registration', 'license', 'aditya', 'shivhare', 'inh000013873', 'nism', 'analyst', 'registered', 'validity', 'is aditya shivhare sebi registered', 'sebi reg'],
-        content: '<strong>SEBI Registration Details:</strong> Trade Care Research is headed by <strong>Aditya Shivhare</strong>, a SEBI Registered Research Analyst (Reg No: <strong>INH000013873</strong>) with perpetual validity under SEBI (Research Analysts) Regulations, 2014. We strictly adhere to zero profit guarantee rules and NISM technical discipline.'
+        content: '<strong>SEBI Registration Details:</strong> Trade Care Research is headed by <strong>Aditya Shivhare</strong>, a SEBI Registered Research Analyst (Reg No: <strong>INH000013873</strong>) under SEBI (Research Analysts) Regulations, 2014. We strictly adhere to zero profit guarantee rules and NISM technical discipline.'
       },
       {
         id: 'bank_nifty',
@@ -721,7 +721,8 @@ window.verifySebiLicenseCode = function() {
         <h4 style="color: var(--primary); font-size: 1.05rem; margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-check"></i> SEBI License Verification Verified</h4>
         <p style="font-size: 0.85rem; color: #FFF;">
           • <strong>Analyst Name:</strong> ADITYA SHIVHARE<br>
-          • <strong>Registration No:</strong> INH000013873 (Perpetual Validity)<br>
+          • <strong>Registration No:</strong> INH000013873<br>
+
           • <strong>Authorized Bank Account:</strong> HDFC BANK (ADITYA SHIVHARE)<br>
           • <strong>NISM Certifications:</strong> Equity Derivatives & Research Analysis
         </p>
@@ -958,29 +959,37 @@ function initForms() {
 }
 
 
+window.toggleMobileNav = function(e) {
+  if (e) {
+    if (typeof e.stopPropagation === 'function') e.stopPropagation();
+  }
+  const menu = document.querySelector('.nav-menu');
+  const toggle = document.querySelector('.mobile-toggle');
+  if (!menu) return;
+
+  menu.classList.toggle('active');
+  const icon = toggle ? toggle.querySelector('i') : null;
+  if (icon) {
+    if (menu.classList.contains('active')) {
+      icon.className = 'fa-solid fa-xmark';
+    } else {
+      icon.className = 'fa-solid fa-bars';
+    }
+  }
+};
+
 function initMobileNav() {
   const toggle = document.querySelector('.mobile-toggle');
   const menu = document.querySelector('.nav-menu');
   const dropdown = document.querySelector('.nav-dropdown');
 
-  if (toggle && menu) {
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menu.classList.toggle('active');
-      const icon = toggle.querySelector('i');
-      if (icon) {
-        if (menu.classList.contains('active')) {
-          icon.className = 'fa-solid fa-xmark';
-        } else {
-          icon.className = 'fa-solid fa-bars';
-        }
-      }
-    });
+  if (toggle) {
+    toggle.addEventListener('click', window.toggleMobileNav);
   }
 
   if (dropdown) {
     dropdown.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1024) {
         dropdown.classList.toggle('active');
       }
     });
@@ -1008,6 +1017,7 @@ function initMobileNav() {
     }
   });
 }
+
 
 
 function initCustomCursor() {
