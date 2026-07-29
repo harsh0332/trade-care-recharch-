@@ -977,26 +977,39 @@ a:hover { color: #34D399; }
   }
   
   .hero-3d-wrapper {
-    margin-bottom: 1rem !important;
+    margin-bottom: 1.25rem !important;
   }
   
   .hero-3d-img {
-    max-width: 260px !important;
+    max-width: 220px !important;
     margin: 0 auto;
     display: block;
+    box-shadow: none !important;
   }
   
   .tracksheet-3d-img {
-    max-width: 280px !important;
-    margin: 0 auto 1.5rem auto;
+    max-width: 250px !important;
+    margin: 0 auto 1.25rem auto;
     display: block;
   }
   
   .sebi-3d-img {
-    max-width: 260px !important;
+    max-width: 220px !important;
     margin: 0 auto;
     display: block;
   }
+
+  .call-meta {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
 }
+
+/* Ensure no text string breaks the mobile container bounds */
+* {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 
 
