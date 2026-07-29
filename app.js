@@ -709,9 +709,32 @@ window.verifySebiLicenseCode = function() {
 /* --------------------------------------------------------------------------
    7. AUDITED MONTHLY TRACKSHEET MODAL & REAL PDF/CSV GENERATOR
    -------------------------------------------------------------------------- */
+window.openResearchVideoModal = function() {
+  const modal = document.getElementById('researchVideoModal');
+  const player = document.getElementById('researchVideoPlayer');
+  if (!modal) return;
+
+  modal.classList.add('active');
+  if (player && typeof player.play === 'function') {
+    player.currentTime = 0;
+    player.play().catch(() => {});
+  }
+  analytics.trackEvent('research_video_opened', {});
+};
+
+window.closeResearchVideoModal = function() {
+  const modal = document.getElementById('researchVideoModal');
+  const player = document.getElementById('researchVideoPlayer');
+  if (modal) modal.classList.remove('active');
+  if (player && typeof player.pause === 'function') {
+    player.pause();
+  }
+};
+
 const tracksheetData = {
   'bank-nifty': {
     title: 'Bank Nifty Bonanza - Audited Monthly Tracksheet',
+
     segment: 'Index Option Intraday (Bank Nifty)',
     winRate: '87.4%',
     avgRrr: '1:1.85',

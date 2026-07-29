@@ -342,6 +342,25 @@
         </div>
       </div>
 
+      <!-- FUNNEL STEP 3.75: INTERACTIVE RESEARCH METHODOLOGY VIDEO PRESENTATION SECTION -->
+      <div class="section-padding reveal-on-scroll">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge badge-gold"><i class="fa-solid fa-play"></i> Video Walkthrough</span>
+            <h2>See How Our SEBI Research Analyst Generates Signal Setups</h2>
+            <p>Watch our step-by-step technical analysis methodology, VWAP entry triggers, and live SMS/WhatsApp broadcast execution.</p>
+          </div>
+
+          <div class="video-card-wrapper" onclick="openResearchVideoModal()" style="max-width: 860px; margin: 0 auto;">
+            <img src="video_thumbnail_3d.jpg" alt="Stock Market Research Step-by-Step Video Walkthrough" class="video-thumbnail-img">
+            <div class="video-play-overlay">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
       <!-- FUNNEL STEP 4: RESEARCH PRODUCTS MATRIX -->
       <div class="section-padding reveal-on-scroll">
@@ -2256,6 +2275,22 @@
       </div>
     </div>
   </div>
+
+  <!-- RESEARCH METHODOLOGY VIDEO PRESENTATION MODAL -->
+  <div id="researchVideoModal" class="modal-overlay">
+    <div class="modal-card video-modal-card">
+      <button class="modal-close" onclick="closeResearchVideoModal()">&times;</button>
+      <h3 style="font-size: 1.15rem; color: #FFF; margin-bottom: 1rem;"><i class="fa-solid fa-play" style="color: var(--primary);"></i> Technical Research & Signal Execution Video Presentation</h3>
+      <div class="video-responsive-wrapper">
+        <iframe id="researchVideoPlayer" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="Trade Care Research Technical Video Presentation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+        <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> SEBI Registered Analyst INH000013873 (Aditya Shivhare)</span>
+        <a href="#book-appointment" onclick="closeResearchVideoModal()" class="btn btn-primary btn-sm">Book Analyst Consultation</a>
+      </div>
+    </div>
+  </div>
+
 
 
   <!-- FLOATING AI ASSISTANT -->
