@@ -709,27 +709,18 @@ window.verifySebiLicenseCode = function() {
 /* --------------------------------------------------------------------------
    7. AUDITED MONTHLY TRACKSHEET MODAL & REAL PDF/CSV GENERATOR
    -------------------------------------------------------------------------- */
-window.openResearchVideoModal = function() {
-  const modal = document.getElementById('researchVideoModal');
-  const player = document.getElementById('researchVideoPlayer');
-  if (!modal) return;
-
-  modal.classList.add('active');
-  if (player && typeof player.play === 'function') {
-    player.currentTime = 0;
-    player.play().catch(() => {});
-  }
-  analytics.trackEvent('research_video_opened', {});
+window.closeTracksheetModal = function() {
+  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
 };
 
-window.closeResearchVideoModal = function() {
-  const modal = document.getElementById('researchVideoModal');
-  const player = document.getElementById('researchVideoPlayer');
-  if (modal) modal.classList.remove('active');
-  if (player && typeof player.pause === 'function') {
-    player.pause();
-  }
-};
+function initModals() {
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.modal-close') || e.target.classList.contains('modal-overlay')) {
+      document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+    }
+  });
+}
+
 
 const tracksheetData = {
   'bank-nifty': {
@@ -924,14 +915,6 @@ window.downloadTracksheetCsv = function(key) {
 };
 
 
-function initModals() {
-  document.querySelectorAll('.modal-close').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
-    });
-  });
-}
-
 function initForms() {
   document.querySelectorAll('form').forEach(f => {
     f.addEventListener('submit', (e) => {
@@ -942,6 +925,7 @@ function initForms() {
     });
   });
 }
+
 
 function initMobileNav() {
   const toggle = document.querySelector('.mobile-toggle');
