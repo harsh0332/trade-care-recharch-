@@ -1,6 +1,6 @@
 /* ==========================================================================
    TRADE CARE RESEARCH - HIGH-PERFORMANCE MASTER CLIENT ENGINE (60 FPS)
-   Throttled Scroll Observer, RAG Knowledge Engine, 21-Page Routing & Mobile Nav Suite
+   Throttled Scroll Observer, Smart AI RAG Knowledge Engine, 24-Page Routing & Mobile Nav Suite
    ========================================================================== */
 
 class RagKnowledgeEngine {
@@ -8,47 +8,85 @@ class RagKnowledgeEngine {
     this.chunks = [
       {
         id: 'sebi_reg',
-        source: 'SEBI Compliance & Risk Disclosure',
+        source: 'SEBI Compliance & Registration Desk',
         link: '#disclaimer',
-        keywords: ['sebi', 'registration', 'license', 'aditya', 'shivhare', 'inh000013873', 'nism', 'analyst'],
-        content: 'Trade Care Research is a SEBI Registered Research Analyst firm (Registration No. INH000013873) granted to Aditya Shivhare. We maintain strict regulatory compliance with zero profit guarantees.'
+        keywords: ['sebi', 'registration', 'license', 'aditya', 'shivhare', 'inh000013873', 'nism', 'analyst', 'registered', 'validity', 'is aditya shivhare sebi registered', 'sebi reg'],
+        content: '<strong>SEBI Registration Details:</strong> Trade Care Research is headed by <strong>Aditya Shivhare</strong>, a SEBI Registered Research Analyst (Reg No: <strong>INH000013873</strong>) with perpetual validity under SEBI (Research Analysts) Regulations, 2014. We strictly adhere to zero profit guarantee rules and NISM technical discipline.'
       },
       {
         id: 'bank_nifty',
-        source: 'Bank Nifty Bonanza Strategy',
+        source: 'Bank Nifty Bonanza Strategy Desk',
         link: '#bank-nifty',
-        keywords: ['bank', 'nifty', 'bonanza', 'flagship', 'option', 'intraday', 'index', 'momentum'],
-        content: 'Bank Nifty Bonanza is our flagship derivative strategy delivering 100+ point momentum recommendations in Nifty 50 and Bank Nifty options using volume-weighted breakouts and 1:1.5+ risk-reward ratios.'
+        keywords: ['bank', 'nifty', 'bonanza', 'flagship', 'option', 'intraday', 'index', 'momentum', 'banknifty', 'call', 'put'],
+        content: '<strong>Bank Nifty Bonanza (Flagship):</strong> Our premier index option service targeting 100+ point momentum moves in NSE Bank Nifty derivatives. Uses banking heavyweight weightage analysis, option chain OI unwinding, and strict 1:1.5+ risk-reward ratios. Pricing starts at ₹25,000/Month.'
+      },
+      {
+        id: 'stock_option',
+        source: 'Stock Option Intraday Desk',
+        link: '#stock-option-intraday',
+        keywords: ['stock option', 'options', 'call buy', 'put buy', 'option buying', 'iv', 'delta'],
+        content: '<strong>Stock Option Intraday Service:</strong> High-leverage single stock options buying recommendations focusing on Implied Volatility (IV) expansion, strike selection (ATM/ITM), and fast intraday momentum. 15-20 calls/month. Starts at ₹9,000/Month.'
       },
       {
         id: 'stock_cash',
-        source: 'Stock Cash Intraday Service',
+        source: 'Stock Cash Intraday & Swing Desk',
         link: '#stock-cash-intraday',
-        keywords: ['stock', 'cash', 'intraday', 'equity', 'delivery', 'swing'],
-        content: 'Stock Cash Intraday service focuses on liquid NSE equity stocks with VWAP volume confirmation and tight risk management for daily cash traders.'
+        keywords: ['stock cash', 'cash intraday', 'delivery', 'swing', 'equity', 'cash'],
+        content: '<strong>Stock Cash Intraday & Swing Services:</strong> Intraday cash recommendations in liquid NSE stocks using VWAP volume confirmations (Starts at ₹7,000/Mo). For positional delivery traders, our Stock Cash Swing service delivers 3-day to 4-week pattern breakouts (Starts at ₹14,999/Mo).'
       },
       {
         id: 'pricing_matrix',
-        source: 'Pricing & Subscription Matrix',
+        source: 'Consolidated Pricing Desk',
         link: '#pricing',
-        keywords: ['price', 'pricing', 'cost', 'fee', 'charge', 'plan', 'monthly', 'quarterly', 'yearly'],
-        content: 'Research subscriptions start at ₹7,000/Month for Stock Cash, ₹9,000/Month for Stock Option Intraday, and ₹25,000/Month for Bank Nifty Bonanza. Discounted quarterly and annual plans are available.'
+        keywords: ['price', 'pricing', 'cost', 'fee', 'charge', 'plan', 'monthly', 'quarterly', 'yearly', 'annual', 'subscription'],
+        content: '<strong>Subscription Fee Packages:</strong><br>• Stock Cash Intraday: ₹7,000/Mo (₹15,000/Qtr)<br>• Stock Option Intraday: ₹9,000/Mo (₹25,000/Qtr)<br>• Stock Future Intraday: ₹9,000/Mo (₹25,000/Qtr)<br>• Index Option Intraday: ₹9,000/Mo (₹25,000/Qtr)<br>• Commodity Intraday: ₹9,000/Mo (₹25,000/Qtr)<br>• Stock Cash Swing: ₹14,999/Mo (₹32,499/Qtr)<br>• Bank Nifty Bonanza: ₹25,000/Mo (₹55,000/Qtr)'
+      },
+      {
+        id: 'payment_bank',
+        source: 'Official Bank Payment Verification Desk',
+        link: '#fast-payment',
+        keywords: ['payment', 'pay', 'bank', 'account', 'hdfc', 'upi', 'transfer', 'fast payment', 'where to pay'],
+        content: '<strong>Official SEBI Verification Bank Account:</strong> Payments must be made ONLY to HDFC BANK under account holder name <strong>ADITYA SHIVHARE</strong> (SEBI Reg. INH000013873). Please visit the Fast Payment page for verified bank transfer details.'
+      },
+      {
+        id: 'risk_management',
+        source: 'Risk & Capital Sizing Framework',
+        link: '#personalizedAiDashboard',
+        keywords: ['risk', 'capital', 'stop loss', 'sl', 'target', 'reward', 'rrr', 'position size', 'allocation'],
+        content: '<strong>Disciplined Risk Rules:</strong> All Trade Care Research recommendations operate with a minimum 1:1.5 Risk-to-Reward ratio (RRR). We recommend allocating max 5-10% capital per trade and strictly adhering to pre-defined stop-losses.'
+      },
+      {
+        id: 'complaints_sebi',
+        source: 'Grievance & SCORES Portal',
+        link: '#grievance-redressal',
+        keywords: ['complaint', 'grievance', 'scores', 'smart odr', 'dispute', 'escalation', 'help'],
+        content: '<strong>Grievance Escalation Matrix:</strong> Level 1 Support Desk (info@tradecareresearch.com) → Level 2 Support Lead → Level 3 Compliance Officer (Aditya Shivhare) → Level 4 SEBI SCORES Portal → Level 5 SMART ODR Platform.'
+      },
+      {
+        id: 'contact_callback',
+        source: 'Analyst Advisory Consultation Desk',
+        link: '#contact',
+        keywords: ['contact', 'phone', 'number', 'email', 'call', 'callback', 'consultation', 'appointment', 'whatsapp', 'address'],
+        content: '<strong>Contact Helpline & Callback:</strong><br>• Phone: +91 8839367516 (Mon-Fri 8:30 AM - 6:30 PM IST)<br>• Email: info@tradecareresearch.com<br>• WhatsApp: Direct chat available<br>• Address: House No. 175 Goya Colony, Berasiya Road Karond, Bhopal M.P - 462038'
       }
     ];
   }
 
   query(userQuery) {
-    const tokens = userQuery.toLowerCase().split(/\W+/).filter(t => t.length > 2);
-    if (!tokens.length) return { confidence: 'low', answer: null };
+    const qLower = userQuery.toLowerCase();
+    const tokens = qLower.split(/\W+/).filter(t => t.length > 2);
+    if (!tokens.length && qLower.length < 3) return { confidence: 'low', match: null };
 
     let bestMatch = null;
     let maxScore = 0;
 
     this.chunks.forEach(chunk => {
       let score = 0;
+      chunk.keywords.forEach(kw => {
+        if (qLower.includes(kw)) score += 4;
+      });
       tokens.forEach(token => {
-        if (chunk.keywords.includes(token)) score += 3;
-        else if (chunk.content.toLowerCase().includes(token)) score += 1;
+        if (chunk.content.toLowerCase().includes(token)) score += 1;
       });
       if (score > maxScore) {
         maxScore = score;
@@ -102,12 +140,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initCustomCursor();
   initLiveSignalEngine();
+  initAiModalHandlers();
 
   analytics.trackEvent('page_view', { path: window.location.hash || '#home' });
 });
 
 /* --------------------------------------------------------------------------
-   1. ROUTING ENGINE FOR ALL 21 PAGE VIEWS
+   1. ROUTING ENGINE FOR ALL 24 PAGE VIEWS
    -------------------------------------------------------------------------- */
 function initRouting() {
   const views = document.querySelectorAll('.page-view');
@@ -281,10 +320,11 @@ function initThrottledScrollObservers() {
   if (scrollBtn) {
     scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
-
-  initAiModalHandlers();
 }
 
+/* --------------------------------------------------------------------------
+   5. ULTRA-SMART AI RESEARCH ASSISTANT HANDLERS (PROMPT CHIPS + RAG ENGINE)
+   -------------------------------------------------------------------------- */
 function initAiModalHandlers() {
   const trigger = document.getElementById('aiAssistantTrigger');
   const modal = document.getElementById('aiAssistantModal');
@@ -295,8 +335,25 @@ function initAiModalHandlers() {
 
   if (!trigger || !modal || !chatBody) return;
 
-  trigger.addEventListener('click', () => modal.classList.toggle('active'));
+  trigger.addEventListener('click', () => {
+    modal.classList.toggle('active');
+    if (modal.classList.contains('active') && chatInput) {
+      setTimeout(() => chatInput.focus(), 150);
+    }
+  });
+
   if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+
+  // Prompt Chips Click Handlers (Delegated + Direct)
+  document.addEventListener('click', (e) => {
+    const chip = e.target.closest('.prompt-chip');
+    if (chip) {
+      const promptText = chip.getAttribute('data-prompt') || chip.textContent.trim();
+      if (promptText) {
+        handleQuery(promptText);
+      }
+    }
+  });
 
   if (sendBtn && chatInput) {
     sendBtn.addEventListener('click', () => {
@@ -313,22 +370,44 @@ function initAiModalHandlers() {
 
   function handleQuery(text) {
     appendMsg(text, 'user');
-    const res = ragEngine.query(text);
+    analytics.trackEvent('ai_query_submitted', { query: text });
+
+    const loadingId = appendLoading();
+
     setTimeout(() => {
+      removeLoading(loadingId);
+      const res = ragEngine.query(text);
       if (res.match) {
-        appendMsg(`${res.match.content} (Source: ${res.match.source})`, 'bot');
+        const sourceHtml = res.match.link ? `<br><a href="${res.match.link}" onclick="document.getElementById('aiAssistantModal').classList.remove('active')" style="color: var(--primary); font-weight:700; display:inline-block; margin-top:0.4rem;"><i class="fa-solid fa-arrow-right"></i> Open Page: ${res.match.source}</a>` : '';
+        appendMsg(`${res.match.content}${sourceHtml}`, 'bot');
       } else {
-        appendMsg("I couldn't find a direct match in our verified SEBI knowledge base. Please explore our Services page.", 'bot');
+        appendMsg(`I couldn't find a direct match for <em>"${text}"</em> in our registered SEBI database.<br><br>💡 You can explore our <a href="#services" onclick="document.getElementById('aiAssistantModal').classList.remove('active')" style="color:var(--primary); font-weight:700;">Services Overview</a> or contact our helpline at <strong>+91 8839367516</strong>.`, 'bot');
       }
-    }, 400);
+    }, 450);
   }
 
-  function appendMsg(txt, type) {
+  function appendMsg(htmlContent, type) {
     const d = document.createElement('div');
     d.className = `msg-bubble msg-${type}`;
-    d.textContent = txt;
+    d.innerHTML = htmlContent;
     chatBody.appendChild(d);
     chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function appendLoading() {
+    const id = 'loading_' + Date.now();
+    const d = document.createElement('div');
+    d.className = 'msg-bubble msg-bot';
+    d.id = id;
+    d.innerHTML = `<span style="color: var(--text-muted); font-size: 0.8rem;"><i class="fa-solid fa-spinner fa-spin"></i> Analyzing SEBI database...</span>`;
+    chatBody.appendChild(d);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return id;
+  }
+
+  function removeLoading(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
   }
 }
 
